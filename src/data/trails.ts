@@ -183,6 +183,6 @@ export const trails: Trail[] = [
       { cs: "Deštné", en: "Deštné" },
     ],
     links: { mapyCz: "https://mapy.cz/s/orlicke-hory" },
-    photos: [u("photo-1470770841072-f978cf4d019e"), u("photo-1469474968028-56623f02e42e"), u("photo-1500382017468-9049fed747ef"), u("photo-1441974231531-c6227db76b6e"))],
+    photos: [u("photo-1470770841072-f978cf4d019e"), u("photo-1469474968028-56623f02e42e"), u("photo-1500382017468-9049fed747ef"), u("photo-1441974231531-c6227db76b6e")],
   },
 ];
