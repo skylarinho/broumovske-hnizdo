@@ -1,4 +1,4 @@
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link, useLocation, useRouter } from "@tanstack/react-router";
 import { Menu, X, Leaf } from "lucide-react";
 import { useState } from "react";
 import { useLang, useT, type Lang } from "@/i18n";
@@ -6,19 +6,34 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { to: "/", key: "nav.home" as const },
-  { to: "/ubytovani", key: "nav.stay" as const },
-  { to: "/ceny", key: "nav.prices" as const },
-  { to: "/okoli", key: "nav.area" as const },
-  { to: "/trasy", key: "nav.routes" as const },
-  { to: "/kontakt", key: "nav.contact" as const },
+  { hash: "book", key: "book.title" as const },
+  { hash: "ubytovani", key: "nav.stay" as const },
+  { hash: "ceny", key: "nav.prices" as const },
+  { hash: "okoli", key: "nav.area" as const },
+  { hash: "trasy", key: "nav.routes" as const },
 ];
+
+function useScrollToHash() {
+  const router = useRouter();
+  const location = useLocation();
+  return (hash: string) => {
+    const scroll = () => {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    if (location.pathname !== "/") {
+      router.navigate({ to: "/" }).then(() => setTimeout(scroll, 50));
+    } else {
+      scroll();
+    }
+  };
+}
 
 export function Header() {
   const t = useT();
   const { lang, setLang } = useLang();
-  const location = useLocation();
   const [open, setOpen] = useState(false);
+  const scrollTo = useScrollToHash();
 
   return (
     <header className="sticky top-0 z-40 backdrop-blur bg-background/80 border-b border-border">
@@ -31,21 +46,15 @@ export function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
-          {links.map((l) => {
-            const active = location.pathname === l.to;
-            return (
-              <Link
-                key={l.to}
-                to={l.to}
-                className={cn(
-                  "px-3 py-2 text-sm rounded-md transition-colors",
-                  active ? "text-deep font-medium" : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                {t(l.key)}
-              </Link>
-            );
-          })}
+          {links.map((l) => (
+            <button
+              key={l.hash}
+              onClick={() => scrollTo(l.hash)}
+              className="px-3 py-2 text-sm rounded-md text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {t(l.key)}
+            </button>
+          ))}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -66,14 +75,16 @@ export function Header() {
         <nav className="md:hidden border-t border-border bg-background">
           <div className="container-prose py-2 flex flex-col">
             {links.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                onClick={() => setOpen(false)}
-                className="py-3 text-sm border-b border-border last:border-0"
+              <button
+                key={l.hash}
+                onClick={() => {
+                  setOpen(false);
+                  scrollTo(l.hash);
+                }}
+                className="py-3 text-sm text-left border-b border-border last:border-0"
               >
                 {t(l.key)}
-              </Link>
+              </button>
             ))}
           </div>
         </nav>
@@ -103,6 +114,7 @@ function LangSwitch({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void 
 
 export function Footer() {
   const t = useT();
+  const scrollTo = useScrollToHash();
   return (
     <footer className="mt-24 border-t border-border bg-secondary/40">
       <div className="container-prose py-12 grid gap-8 md:grid-cols-3">
@@ -119,10 +131,10 @@ export function Footer() {
           <h4 className="font-display text-sm font-semibold mb-3">{t("footer.quickLinks")}</h4>
           <ul className="space-y-2 text-sm">
             {links.map((l) => (
-              <li key={l.to}>
-                <Link to={l.to} className="text-muted-foreground hover:text-foreground">
+              <li key={l.hash}>
+                <button onClick={() => scrollTo(l.hash)} className="text-muted-foreground hover:text-foreground">
                   {t(l.key)}
-                </Link>
+                </button>
               </li>
             ))}
           </ul>
