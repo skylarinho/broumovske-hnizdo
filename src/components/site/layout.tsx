@@ -1,4 +1,4 @@
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link, useLocation, useNavigate } from "@tanstack/react-router";
 import { Menu, X, Leaf } from "lucide-react";
 import { useState } from "react";
 import { useLang, useT, type Lang } from "@/i18n";
@@ -6,12 +6,11 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { to: "/", key: "nav.home" as const },
-  { to: "/ubytovani", key: "nav.stay" as const },
-  { to: "/ceny", key: "nav.prices" as const },
-  { to: "/okoli", key: "nav.area" as const },
-  { to: "/trasy", key: "nav.routes" as const },
-  { to: "/kontakt", key: "nav.contact" as const },
+  { hash: "book", key: "book.title" as const },
+  { hash: "ubytovani", key: "nav.stay" as const },
+  { hash: "ceny", key: "nav.prices" as const },
+  { hash: "okoli", key: "nav.area" as const },
+  { hash: "trasy", key: "nav.routes" as const },
 ];
 
 export function Header() {
