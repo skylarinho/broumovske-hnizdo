@@ -275,6 +275,23 @@ function AreaSection() {
               </div>
             </div>
             <p className="text-sm text-muted-foreground">{p.desc[lang]}</p>
+            {p.longDesc[lang] && (
+              <p className="text-sm text-muted-foreground mt-2">{p.longDesc[lang]}</p>
+            )}
+            {(p.mapy || p.google) && (
+              <div className="flex flex-wrap gap-2 mt-3">
+                {p.mapy && (
+                  <a href={p.mapy} target="_blank" rel="noreferrer" className="text-xs px-2.5 py-1 rounded-full border border-border hover:border-deep/40 inline-flex items-center gap-1">
+                    Mapy.cz <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
+                {p.google && (
+                  <a href={p.google} target="_blank" rel="noreferrer" className="text-xs px-2.5 py-1 rounded-full border border-border hover:border-deep/40 inline-flex items-center gap-1">
+                    Google <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
+              </div>
+            )}
           </article>
         ))}
       </HScroll>
