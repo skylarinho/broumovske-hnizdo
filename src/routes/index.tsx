@@ -114,19 +114,22 @@ function Hero() {
       />
       <BaroqueOrnament className="absolute top-6 left-1/2 -translate-x-1/2 w-40 text-deep/15" />
       <div className="container-prose pt-16 pb-16 md:pt-24 md:pb-20 text-center">
-        <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-4">Broumovsko · 2026</p>
+        <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-4">{t("hero.eyebrow")}</p>
         <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.05] text-deep">
           {t("brand.name")}
         </h1>
         <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
           {t("brand.tag")}
         </p>
+        <p className="mt-5 text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          {t("hero.intro")}
+        </p>
         <div className="mt-8 flex flex-wrap gap-3 justify-center">
           <Button asChild size="lg" className="rounded-full">
             <a href="#book">{t("book.title")} <ArrowRight className="ml-2 w-4 h-4" /></a>
           </Button>
           <Button asChild size="lg" variant="outline" className="rounded-full">
-            <a href="#trasy">{t("hero.cta2")}</a>
+            <a href="#ubytovani">{t("hero.cta2")}</a>
           </Button>
         </div>
       </div>
