@@ -16,13 +16,13 @@ export const dict = {
   // brand
   "brand.name": { cs: "Broumovské hnízdo", en: "Broumov Nest" },
   "brand.tag": {
-    cs: "Tvoje útočiště v srdci Broumovska – malý byt ideální pro dva, kde si v klidu odpočineš.",
-    en: "Your hideaway in the heart of the Broumov region — a small flat ideal for two, where you can truly rest.",
+    cs: "Moje srdcovka, tvoje útočiště.",
+    en: "My heart project, your hideaway.",
   },
   "hero.eyebrow": { cs: "Skřivánkov", en: "Skřivánkov" },
   "hero.intro": {
-    cs: "Broumovské hnízdo není jen ubytování – je to moje srdcovka, o kterou se chci podělit. Preferuji cestování, které je ohleduplné k místu, k přírodě i k lidem. Proto je Hnízdo samoobslužné, postavené na vzájemné důvěře a respektu k Broumovsku. Žádné zbytečné služby, žádné formality. Jen ty, klid a kousek domova uprostřed unikátní krajiny.",
-    en: "Broumov Nest isn't just a place to stay — it's my heart project, something I want to share. I prefer travel that respects the place, nature and people. That's why the Nest is self-service, built on mutual trust and respect for the Broumov region. No unnecessary services, no formalities. Just you, calm and a bit of home in a unique landscape.",
+    cs: "Žádné zbytečné služby, žádné formality, samoobslužné, postavené na vzájemné důvěře.",
+    en: "No unnecessary services, no formalities — self-service, built on mutual trust.",
   },
 
   // hero
@@ -38,8 +38,8 @@ export const dict = {
   // sections
   "stay.title": { cs: "Tvoje pohodlné zázemí", en: "Your cosy base" },
   "stay.lead": {
-    cs: "Útulný byt 1+kk o 24 m² – malý a útulný, ideálně pro dva. Plně vybavená kuchyň, koupelna se sprchou, rozkládací postel. Vinylová podlaha, akumulační radiátory.",
-    en: "A cosy 24 m² studio — small and snug, ideally for two. Fully equipped kitchen, walk-in shower, sofa bed. Vinyl flooring, storage heaters.",
+    cs: "Útulný byt 1+kk o 24 m², ideálně pro dva. Plně vybavená kuchyň, koupelna se sprchou, rozkládací postel. Vinylová podlaha, akumulační radiátory.",
+    en: "A snug 24 m² studio, ideally for two. Fully equipped kitchen, walk-in shower, sofa bed. Vinyl flooring, storage heaters.",
   },
   "stay.gallery": { cs: "Galerie", en: "Gallery" },
   "stay.amenities": { cs: "Kompletní vybavení", en: "Full amenities" },

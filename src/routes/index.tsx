@@ -31,12 +31,12 @@ const galleryPhotos = [
 ];
 
 const pois = [
-  { icon: ShoppingBasket, name: { cs: "Lidl", en: "Lidl" }, distance: "100 m", desc: { cs: "Nejbližší obchod.", en: "Closest grocery." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
-  { icon: ParkingSquare, name: { cs: "Parkování", en: "Parking" }, distance: "50 m", desc: { cs: "Bezplatné u vchodu.", en: "Free, near the door." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
-  { icon: Landmark, name: { cs: "Klášter Broumov", en: "Broumov Monastery" }, distance: "100 m", desc: { cs: "Barokní skvost.", en: "Baroque gem." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
-  { icon: UtensilsCrossed, name: { cs: "Restaurace Lokál", en: "Lokál" }, distance: "300 m", desc: { cs: "Teplá jídla, živá hudba.", en: "Hot food, live music." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
-  { icon: Beer, name: { cs: "U tří růží", en: "U tří růží" }, distance: "400 m", desc: { cs: "Pivo Opat, domácí kuchyně.", en: "Local Opat beer." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
-  { icon: Church, name: { cs: "Dřevěný kostel", en: "Wooden church" }, distance: "1,5 km", desc: { cs: "Jeden z nejstarších v ČR.", en: "Oldest wooden church." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
+  { icon: ShoppingBasket, name: { cs: "Lidl", en: "Lidl" }, distance: "100 m", desc: { cs: "Nejbližší obchod.", en: "Closest grocery." }, longDesc: { cs: "Otevřeno denně, stačí přejít ulici. Ideální pro rychlý nákup snídaně nebo večeře.", en: "Open daily, just across the street. Perfect for a quick breakfast or dinner run." }, mapy: "https://mapy.cz/", google: "https://maps.google.com/" },
+  { icon: ParkingSquare, name: { cs: "Parkování", en: "Parking" }, distance: "50 m", desc: { cs: "Bezplatné u vchodu.", en: "Free, near the door." }, longDesc: { cs: "Veřejné parkoviště přímo u domu, místa bývají i večer. Bez poplatku.", en: "Public parking right by the house, usually free spots even in the evening." }, mapy: "https://mapy.cz/", google: "https://maps.google.com/" },
+  { icon: Landmark, name: { cs: "Klášter Broumov", en: "Broumov Monastery" }, distance: "100 m", desc: { cs: "Barokní skvost.", en: "Baroque gem." }, longDesc: { cs: "Jeden z nejvýznamnějších barokních klášterů u nás. Prohlídky, kavárna, výstavy a krásná zahrada.", en: "One of the most important Baroque monasteries in the country. Tours, café, exhibitions and a lovely garden." }, mapy: "https://mapy.cz/", google: "https://maps.google.com/" },
+  { icon: UtensilsCrossed, name: { cs: "Restaurace Lokál", en: "Lokál" }, distance: "300 m", desc: { cs: "Teplá jídla, živá hudba.", en: "Hot food, live music." }, longDesc: { cs: "Klasická česká kuchyně, příjemná obsluha, občas i koncert. Doporučuji rezervaci.", en: "Czech classics, friendly service, occasional live music. Booking recommended." }, mapy: "https://mapy.cz/", google: "https://maps.google.com/" },
+  { icon: Beer, name: { cs: "U tří růží", en: "U tří růží" }, distance: "400 m", desc: { cs: "Pivo Opat, domácí kuchyně.", en: "Local Opat beer." }, longDesc: { cs: "Místní hospůdka s broumovským Opatem a poctivými jídly. Atmosféra jako z minulého století.", en: "Local pub with Broumov's Opat beer and hearty meals. Old-school atmosphere." }, mapy: "https://mapy.cz/", google: "https://maps.google.com/" },
+  { icon: Church, name: { cs: "Dřevěný kostel", en: "Wooden church" }, distance: "1,5 km", desc: { cs: "Jeden z nejstarších v ČR.", en: "Oldest wooden church." }, longDesc: { cs: "Hřbitovní kostel Panny Marie ze 14. století – unikátní dřevěná stavba, kterou nesmíš minout.", en: "14th-century wooden cemetery church — a unique landmark you shouldn't miss." }, mapy: "https://mapy.cz/", google: "https://maps.google.com/" },
 ];
 
 const typeIcon: Record<TrailType, any> = { hike: Footprints, bike: Bike, car: Car };
@@ -118,10 +118,10 @@ function Hero() {
         <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.05] text-deep">
           {t("brand.name")}
         </h1>
-        <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+        <p className="mt-6 font-display text-2xl md:text-3xl text-deep max-w-2xl mx-auto leading-snug">
           {t("brand.tag")}
         </p>
-        <p className="mt-5 text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           {t("hero.intro")}
         </p>
         <div className="mt-8 flex flex-wrap gap-3 justify-center">
