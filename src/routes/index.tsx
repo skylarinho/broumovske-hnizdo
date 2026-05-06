@@ -172,6 +172,26 @@ function InfoBar() {
   );
 }
 
+function SectionHeader({ eyebrow, title, lead }: { eyebrow: string; title: string; lead?: string }) {
+  return (
+    <header className="max-w-2xl mb-8">
+      <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-3">{eyebrow}</p>
+      <h2 className="font-display text-3xl md:text-4xl font-semibold text-deep">{title}</h2>
+      {lead && <p className="mt-4 text-muted-foreground">{lead}</p>}
+    </header>
+  );
+}
+
+function BookSection() {
+  const t = useT();
+  return (
+    <section id="book" className="container-prose pt-20 scroll-mt-20">
+      <SectionHeader eyebrow={t("nav.contact")} title={t("book.title")} lead={t("book.lead")} />
+      <BookingWidget />
+    </section>
+  );
+}
+
 function StaySection() {
   const t = useT();
   const [lightbox, setLightbox] = useState<string | null>(null);
