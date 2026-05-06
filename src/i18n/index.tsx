@@ -38,8 +38,8 @@ export const dict = {
   // sections
   "stay.title": { cs: "Tvoje pohodlné zázemí", en: "Your cosy base" },
   "stay.lead": {
-    cs: "Útulný byt 1+kk o 24 m² – malý a útulný, ideálně pro dva. Plně vybavená kuchyň, koupelna se sprchou, rozkládací postel. Vinylová podlaha, akumulační radiátory.",
-    en: "A cosy 24 m² studio — small and snug, ideally for two. Fully equipped kitchen, walk-in shower, sofa bed. Vinyl flooring, storage heaters.",
+    cs: "Útulný byt 1+kk o 24 m², ideálně pro dva. Plně vybavená kuchyň, koupelna se sprchou, rozkládací postel. Vinylová podlaha, akumulační radiátory.",
+    en: "A snug 24 m² studio, ideally for two. Fully equipped kitchen, walk-in shower, sofa bed. Vinyl flooring, storage heaters.",
   },
   "stay.gallery": { cs: "Galerie", en: "Gallery" },
   "stay.amenities": { cs: "Kompletní vybavení", en: "Full amenities" },
