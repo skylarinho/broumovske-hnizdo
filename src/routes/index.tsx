@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MapPin, ParkingSquare, Phone, Coins, Footprints, Bike, Car, Mountain, Clock, ExternalLink, ShoppingBasket, Landmark, UtensilsCrossed, Beer, Church, Check } from "lucide-react";
+import { ArrowRight, MapPin, ParkingSquare, Phone, Coins, Footprints, Bike, Car, Mountain, Clock, ExternalLink, ShoppingBasket, Landmark, UtensilsCrossed, Beer, Church, Check, Quote } from "lucide-react";
 import { useState } from "react";
 import { useLang, useT } from "@/i18n";
 import { Button } from "@/components/ui/button";
+import { BeforeAfter } from "@/components/site/before-after";
 import { BookingWidget } from "@/components/site/booking";
 import { HScroll } from "@/components/site/h-scroll";
 import { trails, type Trail, type TrailType } from "@/data/trails";
@@ -30,12 +31,12 @@ const galleryPhotos = [
 ];
 
 const pois = [
-  { icon: ShoppingBasket, name: { cs: "Lidl", en: "Lidl" }, distance: "100 m", desc: { cs: "Nejbližší obchod.", en: "Closest grocery." } },
-  { icon: ParkingSquare, name: { cs: "Parkování", en: "Parking" }, distance: "50 m", desc: { cs: "Bezplatné u vchodu.", en: "Free, near the door." } },
-  { icon: Landmark, name: { cs: "Klášter Broumov", en: "Broumov Monastery" }, distance: "100 m", desc: { cs: "Barokní skvost.", en: "Baroque gem." } },
-  { icon: UtensilsCrossed, name: { cs: "Restaurace Lokál", en: "Lokál" }, distance: "300 m", desc: { cs: "Teplá jídla, živá hudba.", en: "Hot food, live music." } },
-  { icon: Beer, name: { cs: "U tří růží", en: "U tří růží" }, distance: "400 m", desc: { cs: "Pivo Opat, domácí kuchyně.", en: "Local Opat beer." } },
-  { icon: Church, name: { cs: "Dřevěný kostel", en: "Wooden church" }, distance: "1,5 km", desc: { cs: "Jeden z nejstarších v ČR.", en: "Oldest wooden church." } },
+  { icon: ShoppingBasket, name: { cs: "Lidl", en: "Lidl" }, distance: "100 m", desc: { cs: "Nejbližší obchod.", en: "Closest grocery." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
+  { icon: ParkingSquare, name: { cs: "Parkování", en: "Parking" }, distance: "50 m", desc: { cs: "Bezplatné u vchodu.", en: "Free, near the door." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
+  { icon: Landmark, name: { cs: "Klášter Broumov", en: "Broumov Monastery" }, distance: "100 m", desc: { cs: "Barokní skvost.", en: "Baroque gem." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
+  { icon: UtensilsCrossed, name: { cs: "Restaurace Lokál", en: "Lokál" }, distance: "300 m", desc: { cs: "Teplá jídla, živá hudba.", en: "Hot food, live music." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
+  { icon: Beer, name: { cs: "U tří růží", en: "U tří růží" }, distance: "400 m", desc: { cs: "Pivo Opat, domácí kuchyně.", en: "Local Opat beer." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
+  { icon: Church, name: { cs: "Dřevěný kostel", en: "Wooden church" }, distance: "1,5 km", desc: { cs: "Jeden z nejstarších v ČR.", en: "Oldest wooden church." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
 ];
 
 const typeIcon: Record<TrailType, any> = { hike: Footprints, bike: Bike, car: Car };
@@ -50,6 +51,8 @@ function HomePage() {
       <AreaSection />
       <MidBookCTA />
       <RoutesSection />
+      <HistorySection />
+      <TestimonialsSection />
       <BookSection />
       <ArrivalLink />
     </>
@@ -58,16 +61,11 @@ function HomePage() {
 
 function MidBookCTA() {
   const t = useT();
-  const { lang } = useLang();
   return (
     <section className="container-prose pt-20">
       <div className="card-soft p-8 md:p-10 text-center bg-gradient-to-br from-secondary/60 to-accent/20">
-        <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-3">
-          {lang === "cs" ? "Zaujalo vás to?" : "Like what you see?"}
-        </p>
-        <h3 className="font-display text-2xl md:text-3xl font-semibold text-deep">
-          {lang === "cs" ? "Vyberte termín a napište nám" : "Pick your dates and message us"}
-        </h3>
+        <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-3">{t("mid.eyebrow")}</p>
+        <h3 className="font-display text-2xl md:text-3xl font-semibold text-deep">{t("mid.title")}</h3>
         <Button asChild size="lg" className="rounded-full mt-6">
           <a href="#book">
             {t("book.title")} <ArrowRight className="ml-2 w-4 h-4" />
@@ -116,19 +114,22 @@ function Hero() {
       />
       <BaroqueOrnament className="absolute top-6 left-1/2 -translate-x-1/2 w-40 text-deep/15" />
       <div className="container-prose pt-16 pb-16 md:pt-24 md:pb-20 text-center">
-        <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-4">Broumovsko · 2026</p>
+        <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-4">{t("hero.eyebrow")}</p>
         <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.05] text-deep">
           {t("brand.name")}
         </h1>
         <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
           {t("brand.tag")}
         </p>
+        <p className="mt-5 text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          {t("hero.intro")}
+        </p>
         <div className="mt-8 flex flex-wrap gap-3 justify-center">
           <Button asChild size="lg" className="rounded-full">
             <a href="#book">{t("book.title")} <ArrowRight className="ml-2 w-4 h-4" /></a>
           </Button>
           <Button asChild size="lg" variant="outline" className="rounded-full">
-            <a href="#trasy">{t("hero.cta2")}</a>
+            <a href="#ubytovani">{t("hero.cta2")}</a>
           </Button>
         </div>
       </div>
@@ -274,6 +275,23 @@ function AreaSection() {
               </div>
             </div>
             <p className="text-sm text-muted-foreground">{p.desc[lang]}</p>
+            {p.longDesc[lang] && (
+              <p className="text-sm text-muted-foreground mt-2">{p.longDesc[lang]}</p>
+            )}
+            {(p.mapy || p.google) && (
+              <div className="flex flex-wrap gap-2 mt-3">
+                {p.mapy && (
+                  <a href={p.mapy} target="_blank" rel="noreferrer" className="text-xs px-2.5 py-1 rounded-full border border-border hover:border-deep/40 inline-flex items-center gap-1">
+                    Mapy.cz <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
+                {p.google && (
+                  <a href={p.google} target="_blank" rel="noreferrer" className="text-xs px-2.5 py-1 rounded-full border border-border hover:border-deep/40 inline-flex items-center gap-1">
+                    Google <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
+              </div>
+            )}
           </article>
         ))}
       </HScroll>
@@ -415,6 +433,45 @@ function TrailDetail({ trail }: { trail: Trail }) {
   );
 }
 
+function HistorySection() {
+  const t = useT();
+  return (
+    <section id="historie" className="container-prose pt-20 scroll-mt-20">
+      <SectionHeader eyebrow={t("history.title")} title={t("history.title")} lead={t("history.lead")} />
+      <BeforeAfter
+        before="https://images.unsplash.com/photo-1503594384566-461fe158e797?auto=format&fit=crop&w=1200&q=70"
+        after="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=70"
+        beforeLabel={t("history.before")}
+        afterLabel={t("history.after")}
+      />
+    </section>
+  );
+}
+
+const sampleNotes = [
+  { cs: "Nádherné místo, vrátíme se. Děkujeme za klid a domácí atmosféru.", en: "Beautiful place — we'll be back. Thank you for the peace and homely vibe.", who: "H. & P." },
+  { cs: "Hnízdo nás dobilo. Bez WiFi, ale plné inspirace.", en: "The Nest recharged us. No WiFi, but plenty of inspiration.", who: "Markéta" },
+];
+
+function TestimonialsSection() {
+  const t = useT();
+  const { lang } = useLang();
+  return (
+    <section id="vzkazy" className="container-prose pt-20 scroll-mt-20">
+      <SectionHeader eyebrow={t("testimonials.title")} title={t("testimonials.title")} lead={t("testimonials.lead")} />
+      <HScroll>
+        {sampleNotes.map((n, i) => (
+          <article key={i} className="snap-start shrink-0 w-[80%] sm:w-[48%] md:w-[33%] card-soft p-6 bg-secondary/40 flex flex-col">
+            <Quote className="w-6 h-6 text-deep/40 mb-3" />
+            <p className="font-display italic text-lg leading-relaxed text-deep">{n[lang]}</p>
+            <p className="text-xs uppercase tracking-wider text-muted-foreground mt-4">— {n.who}</p>
+          </article>
+        ))}
+      </HScroll>
+      <p className="text-xs text-muted-foreground mt-2">{t("common.swipe")}</p>
+    </section>
+  );
+}
 
 export function BaroqueOrnament({ className }: { className?: string }) {
   return (

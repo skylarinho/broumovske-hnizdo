@@ -114,7 +114,6 @@ function LangSwitch({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void 
 
 export function Footer() {
   const t = useT();
-  const scrollTo = useScrollToHash();
   return (
     <footer className="mt-24 border-t border-border bg-secondary/40">
       <div className="container-prose py-10 text-sm text-muted-foreground">
@@ -124,12 +123,12 @@ export function Footer() {
           </span>
           <span className="font-display text-lg font-semibold">{t("brand.name")}</span>
         </div>
-        <p className="max-w-xl leading-relaxed">
-          {t("footer.lovenote")}
-        </p>
+        <p className="max-w-xl leading-relaxed text-foreground/80">{t("footer.short")}</p>
+        <p className="mt-3 max-w-xl leading-relaxed text-xs">{t("footer.lovenote")}</p>
         <div className="mt-6 flex flex-wrap gap-x-6 gap-y-1">
           <span>U Horní brány 22, Broumov</span>
           <a href="tel:+420776662256" className="hover:text-foreground">+420 776 66 22 56</a>
+          <a href="https://wa.me/420776662256" target="_blank" rel="noreferrer" className="hover:text-foreground">WhatsApp</a>
         </div>
         <p className="mt-6 text-xs">© 2026 {t("brand.name")}. {t("footer.rights")}</p>
       </div>

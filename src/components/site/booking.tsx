@@ -33,19 +33,19 @@ export function BookingWidget({ compact = false }: { compact?: boolean }) {
     ? range.to
       ? `${format(range.from, "d. M.", { locale })} – ${format(range.to, "d. M. yyyy", { locale })}`
       : format(range.from, "d. M. yyyy", { locale })
-    : lang === "cs" ? "Vyberte termín" : "Pick dates";
+    : lang === "cs" ? "Vyber termín" : "Pick dates";
 
   const message = useMemo(() => {
     const lines = lang === "cs"
       ? [
-          `Dobrý den, rád/a bych rezervoval/a Broumovské hnízdo.`,
+          `Ahoj, rád/a bych si rezervoval/a Broumovské hnízdo.`,
           range?.from ? `Termín: ${dateLabel}${nights ? ` (${nights} ${nights === 1 ? "noc" : nights < 5 ? "noci" : "nocí"})` : ""}` : null,
           `Počet osob: ${people}`,
           name ? `Jméno: ${name}` : null,
           note ? `\n${note}` : null,
         ]
       : [
-          `Hello, I'd like to book Broumov Nest.`,
+          `Hi, I'd like to book Broumov Nest.`,
           range?.from ? `Dates: ${dateLabel}${nights ? ` (${nights} night${nights === 1 ? "" : "s"})` : ""}` : null,
           `Guests: ${people}`,
           name ? `Name: ${name}` : null,
