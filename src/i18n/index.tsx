@@ -31,7 +31,7 @@ export const dict = {
 
   // info bar
   "info.address": { cs: "U Horní brány 22, Broumov", en: "U Horní brány 22, Broumov" },
-  "info.parking": { cs: "Parkování zdarma, 50 m", en: "Free parking, 50 m" },
+  "info.parking": { cs: "Parkování zdarma", en: "Free parking" },
   "info.phone": { cs: "+420 776 66 22 56", en: "+420 776 66 22 56" },
   "info.priceFrom": { cs: "Od 400 Kč / noc", en: "From 400 CZK / night" },
 
