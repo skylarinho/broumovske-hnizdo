@@ -433,6 +433,45 @@ function TrailDetail({ trail }: { trail: Trail }) {
   );
 }
 
+function HistorySection() {
+  const t = useT();
+  return (
+    <section id="historie" className="container-prose pt-20 scroll-mt-20">
+      <SectionHeader eyebrow={t("history.title")} title={t("history.title")} lead={t("history.lead")} />
+      <BeforeAfter
+        before="https://images.unsplash.com/photo-1503594384566-461fe158e797?auto=format&fit=crop&w=1200&q=70"
+        after="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=70"
+        beforeLabel={t("history.before")}
+        afterLabel={t("history.after")}
+      />
+    </section>
+  );
+}
+
+const sampleNotes = [
+  { cs: "Nádherné místo, vrátíme se. Děkujeme za klid a domácí atmosféru.", en: "Beautiful place — we'll be back. Thank you for the peace and homely vibe.", who: "H. & P." },
+  { cs: "Hnízdo nás dobilo. Bez WiFi, ale plné inspirace.", en: "The Nest recharged us. No WiFi, but plenty of inspiration.", who: "Markéta" },
+];
+
+function TestimonialsSection() {
+  const t = useT();
+  const { lang } = useLang();
+  return (
+    <section id="vzkazy" className="container-prose pt-20 scroll-mt-20">
+      <SectionHeader eyebrow={t("testimonials.title")} title={t("testimonials.title")} lead={t("testimonials.lead")} />
+      <HScroll>
+        {sampleNotes.map((n, i) => (
+          <article key={i} className="snap-start shrink-0 w-[80%] sm:w-[48%] md:w-[33%] card-soft p-6 bg-secondary/40 flex flex-col">
+            <Quote className="w-6 h-6 text-deep/40 mb-3" />
+            <p className="font-display italic text-lg leading-relaxed text-deep">{n[lang]}</p>
+            <p className="text-xs uppercase tracking-wider text-muted-foreground mt-4">— {n.who}</p>
+          </article>
+        ))}
+      </HScroll>
+      <p className="text-xs text-muted-foreground mt-2">{t("common.swipe")}</p>
+    </section>
+  );
+}
 
 export function BaroqueOrnament({ className }: { className?: string }) {
   return (
