@@ -33,7 +33,8 @@ const items: Item[] = [
   { icon: ShowerHead, cs: "Sprcha", en: "Shower", on: true },
   { icon: Bath, cs: "Ručníky a osušky", en: "Towels", on: true },
   { icon: BedDouble, cs: "Povlečení a prostěradla", en: "Bed linen", on: true },
-  { icon: Shirt, cs: "Sušák na prádlo", en: "Drying rack", on: true },
+  { icon: Bike, cs: "Kolo ve sklepě (brzy 2)", en: "Bike in the cellar (soon 2)", on: true },
+  { icon: Dices, cs: "Deskové hry", en: "Board games", on: true },
   { icon: Wind, cs: "Akumulační radiátory", en: "Storage heaters", on: true },
 ];
 
