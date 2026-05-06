@@ -31,12 +31,12 @@ const galleryPhotos = [
 ];
 
 const pois = [
-  { icon: ShoppingBasket, name: { cs: "Lidl", en: "Lidl" }, distance: "100 m", desc: { cs: "Nejbližší obchod.", en: "Closest grocery." } },
-  { icon: ParkingSquare, name: { cs: "Parkování", en: "Parking" }, distance: "50 m", desc: { cs: "Bezplatné u vchodu.", en: "Free, near the door." } },
-  { icon: Landmark, name: { cs: "Klášter Broumov", en: "Broumov Monastery" }, distance: "100 m", desc: { cs: "Barokní skvost.", en: "Baroque gem." } },
-  { icon: UtensilsCrossed, name: { cs: "Restaurace Lokál", en: "Lokál" }, distance: "300 m", desc: { cs: "Teplá jídla, živá hudba.", en: "Hot food, live music." } },
-  { icon: Beer, name: { cs: "U tří růží", en: "U tří růží" }, distance: "400 m", desc: { cs: "Pivo Opat, domácí kuchyně.", en: "Local Opat beer." } },
-  { icon: Church, name: { cs: "Dřevěný kostel", en: "Wooden church" }, distance: "1,5 km", desc: { cs: "Jeden z nejstarších v ČR.", en: "Oldest wooden church." } },
+  { icon: ShoppingBasket, name: { cs: "Lidl", en: "Lidl" }, distance: "100 m", desc: { cs: "Nejbližší obchod.", en: "Closest grocery." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
+  { icon: ParkingSquare, name: { cs: "Parkování", en: "Parking" }, distance: "50 m", desc: { cs: "Bezplatné u vchodu.", en: "Free, near the door." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
+  { icon: Landmark, name: { cs: "Klášter Broumov", en: "Broumov Monastery" }, distance: "100 m", desc: { cs: "Barokní skvost.", en: "Baroque gem." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
+  { icon: UtensilsCrossed, name: { cs: "Restaurace Lokál", en: "Lokál" }, distance: "300 m", desc: { cs: "Teplá jídla, živá hudba.", en: "Hot food, live music." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
+  { icon: Beer, name: { cs: "U tří růží", en: "U tří růží" }, distance: "400 m", desc: { cs: "Pivo Opat, domácí kuchyně.", en: "Local Opat beer." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
+  { icon: Church, name: { cs: "Dřevěný kostel", en: "Wooden church" }, distance: "1,5 km", desc: { cs: "Jeden z nejstarších v ČR.", en: "Oldest wooden church." }, longDesc: { cs: "", en: "" }, mapy: "", google: "" },
 ];
 
 const typeIcon: Record<TrailType, any> = { hike: Footprints, bike: Bike, car: Car };
