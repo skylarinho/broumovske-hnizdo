@@ -31,7 +31,7 @@ export const dict = {
 
   // info bar
   "info.address": { cs: "U Horní brány 22, Broumov", en: "U Horní brány 22, Broumov" },
-  "info.parking": { cs: "Parkování zdarma, 50 m", en: "Free parking, 50 m" },
+  "info.parking": { cs: "Parkování zdarma", en: "Free parking" },
   "info.phone": { cs: "+420 776 66 22 56", en: "+420 776 66 22 56" },
   "info.priceFrom": { cs: "Od 400 Kč / noc", en: "From 400 CZK / night" },
 
@@ -61,8 +61,8 @@ export const dict = {
 
   "area.title": { cs: "Poloha a okolí", en: "Location & surroundings" },
   "area.lead": {
-    cs: "Broumovské hnízdo se nachází v klidné části Broumova, kousek od kláštera a přírodních krás Broumovských stěn.",
-    en: "Broumov Nest sits in a quiet part of Broumov, a short walk from the monastery and the natural wonders of Broumov Walls.",
+    cs: "Hnízdo je v klidné části Broumova, kousek od kláštera a přírodních krás Broumovských stěn.",
+    en: "The Nest sits in a quiet part of Broumov, a short walk from the monastery and the natural wonders of Broumov Walls.",
   },
   "area.mapycz": { cs: "Mapy.cz", en: "Mapy.cz" },
   "area.gmaps": { cs: "Google Maps", en: "Google Maps" },
@@ -126,8 +126,8 @@ export const dict = {
 
   "history.title": { cs: "Historie domu", en: "House history" },
   "history.lead": {
-    cs: "Tady brzy doplním příběh domu a interaktivní porovnání před / po rekonstrukci.",
-    en: "Soon I'll add the story of the house and an interactive before/after slider.",
+    cs: "Dům byl na spadnutí, ale prošel velmi kvalitní a citlivou rekonstrukcí.",
+    en: "The house was on the verge of collapse, but went through a careful, high-quality renovation.",
   },
   "history.before": { cs: "Před", en: "Before" },
   "history.after": { cs: "Po", en: "After" },

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MapPin, ParkingSquare, Phone, Coins, Footprints, Bike, Car, Mountain, Clock, ExternalLink, ShoppingBasket, Landmark, UtensilsCrossed, Beer, Church, Check, Quote } from "lucide-react";
+import { ArrowRight, MapPin, ParkingSquare, Phone, Coins, Footprints, Bike, Car, Mountain, Clock, ExternalLink, ShoppingBasket, Landmark, UtensilsCrossed, Beer, Church, Check, Quote, Martini } from "lucide-react";
 import { useState } from "react";
 import { useLang, useT } from "@/i18n";
 import { Button } from "@/components/ui/button";
@@ -32,10 +32,11 @@ const galleryPhotos = [
 
 const pois = [
   { icon: ShoppingBasket, name: { cs: "Lidl", en: "Lidl" }, distance: "100 m", desc: { cs: "Nejbližší obchod.", en: "Closest grocery." }, longDesc: { cs: "Otevřeno denně, stačí přejít ulici. Ideální pro rychlý nákup snídaně nebo večeře.", en: "Open daily, just across the street. Perfect for a quick breakfast or dinner run." }, mapy: "https://mapy.cz/", google: "https://maps.google.com/" },
-  { icon: ParkingSquare, name: { cs: "Parkování", en: "Parking" }, distance: "50 m", desc: { cs: "Bezplatné u vchodu.", en: "Free, near the door." }, longDesc: { cs: "Veřejné parkoviště přímo u domu, místa bývají i večer. Bez poplatku.", en: "Public parking right by the house, usually free spots even in the evening." }, mapy: "https://mapy.cz/", google: "https://maps.google.com/" },
+  { icon: ParkingSquare, name: { cs: "Parkování", en: "Parking" }, distance: "u domu", desc: { cs: "Bezplatné u vchodu.", en: "Free, near the door." }, longDesc: { cs: "Veřejné parkoviště přímo u domu, místa bývají i večer. Bez poplatku.", en: "Public parking right by the house, usually free spots even in the evening." }, mapy: "https://mapy.cz/", google: "https://maps.google.com/" },
   { icon: Landmark, name: { cs: "Klášter Broumov", en: "Broumov Monastery" }, distance: "100 m", desc: { cs: "Barokní skvost.", en: "Baroque gem." }, longDesc: { cs: "Jeden z nejvýznamnějších barokních klášterů u nás. Prohlídky, kavárna, výstavy a krásná zahrada.", en: "One of the most important Baroque monasteries in the country. Tours, café, exhibitions and a lovely garden." }, mapy: "https://mapy.cz/", google: "https://maps.google.com/" },
   { icon: UtensilsCrossed, name: { cs: "Restaurace Lokál", en: "Lokál" }, distance: "300 m", desc: { cs: "Teplá jídla, živá hudba.", en: "Hot food, live music." }, longDesc: { cs: "Klasická česká kuchyně, příjemná obsluha, občas i koncert. Doporučuji rezervaci.", en: "Czech classics, friendly service, occasional live music. Booking recommended." }, mapy: "https://mapy.cz/", google: "https://maps.google.com/" },
   { icon: Beer, name: { cs: "U tří růží", en: "U tří růží" }, distance: "400 m", desc: { cs: "Pivo Opat, domácí kuchyně.", en: "Local Opat beer." }, longDesc: { cs: "Místní hospůdka s broumovským Opatem a poctivými jídly. Atmosféra jako z minulého století.", en: "Local pub with Broumov's Opat beer and hearty meals. Old-school atmosphere." }, mapy: "https://mapy.cz/", google: "https://maps.google.com/" },
+  { icon: Martini, name: { cs: "Bar Terno", en: "Bar Terno" }, distance: "5 min", desc: { cs: "Legendární bar za zvonkem.", en: "Legendary bar behind a bell." }, longDesc: { cs: "Legendární bar za zvonkem, kam se místní přesouvají po desáté — ať už za hudbou nebo kartami.", en: "Legendary bar (ring the bell) where locals move after 10pm — for music or cards." }, mapy: "https://mapy.cz/", google: "https://maps.google.com/" },
   { icon: Church, name: { cs: "Dřevěný kostel", en: "Wooden church" }, distance: "1,5 km", desc: { cs: "Jeden z nejstarších v ČR.", en: "Oldest wooden church." }, longDesc: { cs: "Hřbitovní kostel Panny Marie ze 14. století – unikátní dřevěná stavba, kterou nesmíš minout.", en: "14th-century wooden cemetery church — a unique landmark you shouldn't miss." }, mapy: "https://mapy.cz/", google: "https://maps.google.com/" },
 ];
 
@@ -139,23 +140,33 @@ function Hero() {
 
 function InfoBar() {
   const t = useT();
-  const items = [
-    { icon: MapPin, label: t("info.address") },
-    { icon: ParkingSquare, label: t("info.parking") },
-    { icon: Phone, label: t("info.phone") },
-    { icon: Coins, label: t("info.priceFrom") },
+  const items: { icon: any; label: string; href?: string; external?: boolean }[] = [
+    { icon: MapPin, label: t("info.address"), href: "https://mapy.cz/zakladni?q=U%20Horn%C3%AD%20br%C3%A1ny%2022%2C%20Broumov", external: true },
+    { icon: ParkingSquare, label: t("info.parking"), href: "https://mapy.cz/zakladni?q=U%20Horn%C3%AD%20br%C3%A1ny%2022%2C%20Broumov", external: true },
+    { icon: Phone, label: t("info.phone"), href: "tel:+420776662256" },
+    { icon: Coins, label: t("info.priceFrom"), href: "#ceny" },
   ];
   return (
     <section className="container-prose -mt-8 relative z-10">
       <div className="card-soft grid grid-cols-2 md:grid-cols-4 gap-px bg-border/60 overflow-hidden">
-        {items.map((it) => (
-          <div key={it.label} className="bg-card p-4 flex items-start gap-3">
-            <span className="inline-flex w-9 h-9 items-center justify-center rounded-full bg-accent/30 text-deep shrink-0">
-              <it.icon className="w-4 h-4" />
-            </span>
-            <span className="text-sm leading-snug">{it.label}</span>
-          </div>
-        ))}
+        {items.map((it) => {
+          const inner = (
+            <>
+              <span className="inline-flex w-9 h-9 items-center justify-center rounded-full bg-accent/30 text-deep shrink-0">
+                <it.icon className="w-4 h-4" />
+              </span>
+              <span className="text-sm leading-snug">{it.label}</span>
+            </>
+          );
+          const cls = "bg-card p-4 flex items-start gap-3 hover:bg-secondary/40 transition-colors";
+          return it.href ? (
+            <a key={it.label} href={it.href} className={cls} {...(it.external ? { target: "_blank", rel: "noreferrer" } : {})}>
+              {inner}
+            </a>
+          ) : (
+            <div key={it.label} className={cls}>{inner}</div>
+          );
+        })}
       </div>
     </section>
   );

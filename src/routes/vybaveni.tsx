@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Check, X, Wifi, Tv, Music, UtensilsCrossed, Refrigerator, Microwave, Coffee, Bath, Wind, Flame, ShowerHead, BedDouble, Shirt, Cookie } from "lucide-react";
+import { ArrowLeft, Check, X, Wifi, Tv, Music, UtensilsCrossed, Refrigerator, Microwave, Coffee, Bath, Wind, Flame, ShowerHead, BedDouble, Cookie, Bike, Dices } from "lucide-react";
 import { useLang, useT } from "@/i18n";
 
 export const Route = createFileRoute("/vybaveni")({
@@ -33,7 +33,8 @@ const items: Item[] = [
   { icon: ShowerHead, cs: "Sprcha", en: "Shower", on: true },
   { icon: Bath, cs: "Ručníky a osušky", en: "Towels", on: true },
   { icon: BedDouble, cs: "Povlečení a prostěradla", en: "Bed linen", on: true },
-  { icon: Shirt, cs: "Sušák na prádlo", en: "Drying rack", on: true },
+  { icon: Bike, cs: "Kolo ve sklepě (brzy 2)", en: "Bike in the cellar (soon 2)", on: true },
+  { icon: Dices, cs: "Deskové hry", en: "Board games", on: true },
   { icon: Wind, cs: "Akumulační radiátory", en: "Storage heaters", on: true },
 ];
 
