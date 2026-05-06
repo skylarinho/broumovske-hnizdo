@@ -93,11 +93,22 @@ export function BookingWidget({ compact = false }: { compact?: boolean }) {
                 selected={range}
                 onSelect={setRange}
                 numberOfMonths={1}
-                disabled={(d) => d < new Date(new Date().setHours(0, 0, 0, 0))}
+                disabled={[
+                  (d: Date) => d < new Date(new Date().setHours(0, 0, 0, 0)),
+                  (d: Date) => isBooked(new Date(d)),
+                ]}
+                modifiers={{ booked: (d: Date) => isBooked(new Date(d)) }}
+                modifiersClassNames={{
+                  booked: "line-through text-muted-foreground/60 bg-destructive/10",
+                }}
                 locale={locale}
                 weekStartsOn={1}
                 className="p-3 pointer-events-auto"
               />
+              <div className="px-3 pb-3 flex items-center gap-2 text-[11px] text-muted-foreground">
+                <span className="inline-block w-3 h-3 rounded-sm bg-destructive/20" />
+                {lang === "cs" ? "obsazeno" : "booked"}
+              </div>
             </PopoverContent>
           </Popover>
         </div>
