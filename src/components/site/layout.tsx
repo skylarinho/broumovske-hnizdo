@@ -1,5 +1,5 @@
 import { Link, useLocation, useRouter } from "@tanstack/react-router";
-import { Menu, X, Leaf } from "lucide-react";
+import { Menu, X, Bird } from "lucide-react";
 import { useState } from "react";
 import { useLang, useT, type Lang } from "@/i18n";
 import { Button } from "@/components/ui/button";
@@ -40,7 +40,7 @@ export function Header() {
       <div className="container-prose flex items-center justify-between h-16">
         <Link to="/" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
           <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent/40 text-deep">
-            <Leaf className="w-4 h-4" />
+            <Bird className="w-4 h-4" />
           </span>
           <span className="font-display text-lg font-semibold tracking-tight">{t("brand.name")}</span>
         </Link>
@@ -119,7 +119,7 @@ export function Footer() {
       <div className="container-prose py-10 text-sm text-muted-foreground">
         <div className="flex items-center gap-2 mb-3 text-foreground">
           <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent/40 text-deep">
-            <Leaf className="w-4 h-4" />
+            <Bird className="w-4 h-4" />
           </span>
           <span className="font-display text-lg font-semibold">{t("brand.name")}</span>
         </div>
