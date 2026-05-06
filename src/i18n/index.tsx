@@ -1,0 +1,142 @@
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+
+export type Lang = "cs" | "en";
+
+type Dict = Record<string, { cs: string; en: string }>;
+
+export const dict = {
+  // nav
+  "nav.home": { cs: "Domů", en: "Home" },
+  "nav.stay": { cs: "Ubytování", en: "Stay" },
+  "nav.prices": { cs: "Ceny", en: "Prices" },
+  "nav.area": { cs: "Okolí", en: "Area" },
+  "nav.routes": { cs: "Trasy", en: "Routes" },
+  "nav.contact": { cs: "Kontakt", en: "Contact" },
+
+  // brand
+  "brand.name": { cs: "Broumovské hnízdo", en: "Broumov Nest" },
+  "brand.tag": {
+    cs: "Ubytování v srdci Broumovska – ideální výchozí bod pro vaše výlety.",
+    en: "A cosy stay in the heart of the Broumov region — your perfect base for trips.",
+  },
+
+  // hero
+  "hero.cta": { cs: "Prozkoumat ubytování", en: "Explore the stay" },
+  "hero.cta2": { cs: "Doporučené trasy", en: "Recommended routes" },
+
+  // info bar
+  "info.address": { cs: "U Horní brány 22, Broumov", en: "U Horní brány 22, Broumov" },
+  "info.parking": { cs: "Parkování zdarma, 50 m", en: "Free parking, 50 m" },
+  "info.phone": { cs: "+420 776 66 22 56", en: "+420 776 66 22 56" },
+  "info.priceFrom": { cs: "Od 400 Kč / noc", en: "From 400 CZK / night" },
+
+  // sections
+  "stay.title": { cs: "Vaše pohodlné zázemí", en: "Your cosy base" },
+  "stay.lead": {
+    cs: "Útulný byt 1+kk o 24 m² s plně vybavenou kuchyní, koupelnou se sprchou a rozkládací postelí. Vinylová podlaha, akumulační radiátory.",
+    en: "A cosy 24 m² studio with a fully equipped kitchen, walk-in shower and a sofa bed. Vinyl flooring, storage heaters.",
+  },
+  "stay.gallery": { cs: "Galerie", en: "Gallery" },
+  "stay.amenities": { cs: "Kompletní vybavení", en: "Full amenities" },
+  "stay.cat.living": { cs: "Obývací část", en: "Living area" },
+  "stay.cat.kitchen": { cs: "Kuchyň", en: "Kitchen" },
+  "stay.cat.bath": { cs: "Koupelna", en: "Bathroom" },
+
+  "prices.title": { cs: "Ceny a podmínky", en: "Prices & terms" },
+  "prices.friends": { cs: "Nejbližší kamarádi a rodina", en: "Close friends & family" },
+  "prices.friendsOfFriends": { cs: "Kamarádi kamarádů", en: "Friends of friends" },
+  "prices.nights3": { cs: "3+ nocí", en: "3+ nights" },
+  "prices.nights12": { cs: "1–2 noci", en: "1–2 nights" },
+  "prices.terms": { cs: "Podmínky", en: "Terms" },
+  "prices.t1": { cs: "Platba předem na účet", en: "Payment in advance by transfer" },
+  "prices.t2": { cs: "Minimální délka pobytu: 1 noc", en: "Minimum stay: 1 night" },
+  "prices.t3": { cs: "Check-in: 14:00–18:00 (nebo dle dohody)", en: "Check-in: 2–6 pm (or by agreement)" },
+  "prices.t4": { cs: "Check-out: do 11:00", en: "Check-out: by 11 am" },
+  "prices.t5": { cs: "Bez kauce", en: "No deposit" },
+
+  "area.title": { cs: "Poloha a okolí", en: "Location & surroundings" },
+  "area.lead": {
+    cs: "Broumovské hnízdo se nachází v klidné části Broumova, kousek od kláštera a přírodních krás Broumovských stěn.",
+    en: "Broumov Nest sits in a quiet part of Broumov, a short walk from the monastery and the natural wonders of Broumov Walls.",
+  },
+  "area.mapycz": { cs: "Mapy.cz", en: "Mapy.cz" },
+  "area.gmaps": { cs: "Google Maps", en: "Google Maps" },
+
+  "transport.title": { cs: "Jak se k nám dostat", en: "How to reach us" },
+  "transport.fromPrague": { cs: "Z Prahy", en: "From Prague" },
+  "transport.fromBrno": { cs: "Z Brna", en: "From Brno" },
+  "transport.fromHK": { cs: "Z Hradce Králové", en: "From Hradec Králové" },
+  "transport.car": { cs: "Autem", en: "By car" },
+  "transport.publicTransport": { cs: "Veřejnou dopravou", en: "Public transport" },
+
+  "routes.title": { cs: "Výlety a trasy", en: "Trips & routes" },
+  "routes.lead": {
+    cs: "Vybrané tipy z okolí — pěšky, na kole i autem. Klikněte na kartu pro detail.",
+    en: "Curated tips around — on foot, by bike or by car. Tap a card for details.",
+  },
+  "routes.all": { cs: "Vše", en: "All" },
+  "routes.hike": { cs: "Pěší", en: "Hiking" },
+  "routes.bike": { cs: "Cyklo", en: "Cycling" },
+  "routes.car": { cs: "Auto", en: "By car" },
+  "routes.more": { cs: "Více informací", en: "More info" },
+  "routes.difficulty": { cs: "Náročnost", en: "Difficulty" },
+  "routes.length": { cs: "Délka", en: "Length" },
+  "routes.elevation": { cs: "Převýšení", en: "Elevation" },
+  "routes.duration": { cs: "Doba", en: "Duration" },
+  "routes.tip": { cs: "Osobní tip", en: "Personal tip" },
+  "routes.warning": { cs: "Upozornění", en: "Heads up" },
+  "routes.steps": { cs: "Body trasy", en: "Route waypoints" },
+  "routes.openMaps": { cs: "Otevřít v mapě", en: "Open in maps" },
+  "routes.web": { cs: "Webové stránky", en: "Website" },
+
+  "contact.title": { cs: "Rezervace a kontakt", en: "Booking & contact" },
+  "contact.form.name": { cs: "Jméno", en: "Name" },
+  "contact.form.email": { cs: "E-mail", en: "Email" },
+  "contact.form.phone": { cs: "Telefon", en: "Phone" },
+  "contact.form.arrival": { cs: "Datum příjezdu", en: "Arrival" },
+  "contact.form.departure": { cs: "Datum odjezdu", en: "Departure" },
+  "contact.form.message": { cs: "Zpráva", en: "Message" },
+  "contact.form.submit": { cs: "Odeslat poptávku", en: "Send enquiry" },
+  "contact.whatsapp": { cs: "Napište nám na WhatsApp", en: "Message us on WhatsApp" },
+  "contact.checklist.title": { cs: "Co dělat při příjezdu a odjezdu", en: "Arrival & departure checklist" },
+
+  "footer.rights": { cs: "Všechna práva vyhrazena.", en: "All rights reserved." },
+  "footer.quickLinks": { cs: "Rychlé odkazy", en: "Quick links" },
+
+  // difficulties
+  "diff.easy": { cs: "lehká", en: "easy" },
+  "diff.medium": { cs: "střední", en: "medium" },
+  "diff.hard": { cs: "náročná", en: "hard" },
+} satisfies Dict;
+
+export type Key = keyof typeof dict;
+
+const LangCtx = createContext<{ lang: Lang; setLang: (l: Lang) => void }>({
+  lang: "cs",
+  setLang: () => {},
+});
+
+export function LangProvider({ children }: { children: ReactNode }) {
+  const [lang, setLangState] = useState<Lang>("cs");
+
+  useEffect(() => {
+    const saved = typeof window !== "undefined" ? (localStorage.getItem("lang") as Lang | null) : null;
+    if (saved === "cs" || saved === "en") setLangState(saved);
+  }, []);
+
+  const setLang = (l: Lang) => {
+    setLangState(l);
+    if (typeof window !== "undefined") localStorage.setItem("lang", l);
+  };
+
+  return <LangCtx.Provider value={{ lang, setLang }}>{children}</LangCtx.Provider>;
+}
+
+export function useLang() {
+  return useContext(LangCtx);
+}
+
+export function useT() {
+  const { lang } = useLang();
+  return (k: Key) => dict[k][lang];
+}
