@@ -61,16 +61,11 @@ function HomePage() {
 
 function MidBookCTA() {
   const t = useT();
-  const { lang } = useLang();
   return (
     <section className="container-prose pt-20">
       <div className="card-soft p-8 md:p-10 text-center bg-gradient-to-br from-secondary/60 to-accent/20">
-        <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-3">
-          {lang === "cs" ? "Zaujalo vás to?" : "Like what you see?"}
-        </p>
-        <h3 className="font-display text-2xl md:text-3xl font-semibold text-deep">
-          {lang === "cs" ? "Vyberte termín a napište nám" : "Pick your dates and message us"}
-        </h3>
+        <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-3">{t("mid.eyebrow")}</p>
+        <h3 className="font-display text-2xl md:text-3xl font-semibold text-deep">{t("mid.title")}</h3>
         <Button asChild size="lg" className="rounded-full mt-6">
           <a href="#book">
             {t("book.title")} <ArrowRight className="ml-2 w-4 h-4" />
