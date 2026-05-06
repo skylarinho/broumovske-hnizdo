@@ -15,6 +15,18 @@ import { cn } from "@/lib/utils";
 const PHONE = "420776662256";
 const PHONE_DISPLAY = "+420 776 66 22 56";
 
+// Obsazené termíny — uprav podle potřeby (rozsah včetně obou krajních dnů)
+const BOOKED_RANGES: { from: Date; to: Date }[] = [
+  { from: new Date(2026, 4, 22), to: new Date(2026, 4, 24) },
+];
+
+function isBooked(d: Date) {
+  const t = d.setHours(0, 0, 0, 0);
+  return BOOKED_RANGES.some(
+    (r) => t >= new Date(r.from).setHours(0, 0, 0, 0) && t <= new Date(r.to).setHours(0, 0, 0, 0)
+  );
+}
+
 export function BookingWidget({ compact = false }: { compact?: boolean }) {
   const t = useT();
   const { lang } = useLang();
