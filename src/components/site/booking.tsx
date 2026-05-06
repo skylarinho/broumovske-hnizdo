@@ -15,6 +15,18 @@ import { cn } from "@/lib/utils";
 const PHONE = "420776662256";
 const PHONE_DISPLAY = "+420 776 66 22 56";
 
+// Obsazené termíny — uprav podle potřeby (rozsah včetně obou krajních dnů)
+const BOOKED_RANGES: { from: Date; to: Date }[] = [
+  { from: new Date(2026, 4, 22), to: new Date(2026, 4, 24) },
+];
+
+function isBooked(d: Date) {
+  const t = d.setHours(0, 0, 0, 0);
+  return BOOKED_RANGES.some(
+    (r) => t >= new Date(r.from).setHours(0, 0, 0, 0) && t <= new Date(r.to).setHours(0, 0, 0, 0)
+  );
+}
+
 export function BookingWidget({ compact = false }: { compact?: boolean }) {
   const t = useT();
   const { lang } = useLang();
@@ -81,11 +93,22 @@ export function BookingWidget({ compact = false }: { compact?: boolean }) {
                 selected={range}
                 onSelect={setRange}
                 numberOfMonths={1}
-                disabled={(d) => d < new Date(new Date().setHours(0, 0, 0, 0))}
+                disabled={[
+                  (d: Date) => d < new Date(new Date().setHours(0, 0, 0, 0)),
+                  (d: Date) => isBooked(new Date(d)),
+                ]}
+                modifiers={{ booked: (d: Date) => isBooked(new Date(d)) }}
+                modifiersClassNames={{
+                  booked: "line-through text-muted-foreground/60 bg-destructive/10",
+                }}
                 locale={locale}
                 weekStartsOn={1}
                 className="p-3 pointer-events-auto"
               />
+              <div className="px-3 pb-3 flex items-center gap-2 text-[11px] text-muted-foreground">
+                <span className="inline-block w-3 h-3 rounded-sm bg-destructive/20" />
+                {lang === "cs" ? "obsazeno" : "booked"}
+              </div>
             </PopoverContent>
           </Popover>
         </div>
