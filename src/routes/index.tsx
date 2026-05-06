@@ -140,44 +140,34 @@ function Hero() {
 
 function InfoBar() {
   const t = useT();
-  const items = [
-    { icon: MapPin, label: t("info.address") },
-    { icon: ParkingSquare, label: t("info.parking") },
-    { icon: Phone, label: t("info.phone") },
-    { icon: Coins, label: t("info.priceFrom") },
+  const items: { icon: any; label: string; href?: string; external?: boolean }[] = [
+    { icon: MapPin, label: t("info.address"), href: "https://mapy.cz/zakladni?q=U%20Horn%C3%AD%20br%C3%A1ny%2022%2C%20Broumov", external: true },
+    { icon: ParkingSquare, label: t("info.parking"), href: "https://mapy.cz/zakladni?q=U%20Horn%C3%AD%20br%C3%A1ny%2022%2C%20Broumov", external: true },
+    { icon: Phone, label: t("info.phone"), href: "tel:+420776662256" },
+    { icon: Coins, label: t("info.priceFrom"), href: "#ceny" },
   ];
   return (
     <section className="container-prose -mt-8 relative z-10">
       <div className="card-soft grid grid-cols-2 md:grid-cols-4 gap-px bg-border/60 overflow-hidden">
-        {items.map((it) => (
-          <div key={it.label} className="bg-card p-4 flex items-start gap-3">
-            <span className="inline-flex w-9 h-9 items-center justify-center rounded-full bg-accent/30 text-deep shrink-0">
-              <it.icon className="w-4 h-4" />
-            </span>
-            <span className="text-sm leading-snug">{it.label}</span>
-          </div>
-        ))}
+        {items.map((it) => {
+          const inner = (
+            <>
+              <span className="inline-flex w-9 h-9 items-center justify-center rounded-full bg-accent/30 text-deep shrink-0">
+                <it.icon className="w-4 h-4" />
+              </span>
+              <span className="text-sm leading-snug">{it.label}</span>
+            </>
+          );
+          const cls = "bg-card p-4 flex items-start gap-3 hover:bg-secondary/40 transition-colors";
+          return it.href ? (
+            <a key={it.label} href={it.href} className={cls} {...(it.external ? { target: "_blank", rel: "noreferrer" } : {})}>
+              {inner}
+            </a>
+          ) : (
+            <div key={it.label} className={cls}>{inner}</div>
+          );
+        })}
       </div>
-    </section>
-  );
-}
-
-function SectionHeader({ eyebrow, title, lead }: { eyebrow: string; title: string; lead?: string }) {
-  return (
-    <header className="max-w-2xl mb-8">
-      <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-3">{eyebrow}</p>
-      <h2 className="font-display text-3xl md:text-4xl font-semibold text-deep">{title}</h2>
-      {lead && <p className="mt-4 text-muted-foreground">{lead}</p>}
-    </header>
-  );
-}
-
-function BookSection() {
-  const t = useT();
-  return (
-    <section id="book" className="container-prose pt-20 scroll-mt-20">
-      <SectionHeader eyebrow={t("nav.contact")} title={t("book.title")} lead={t("book.lead")} />
-      <BookingWidget />
     </section>
   );
 }
