@@ -16,13 +16,18 @@ export const dict = {
   // brand
   "brand.name": { cs: "Broumovské hnízdo", en: "Broumov Nest" },
   "brand.tag": {
-    cs: "Ubytování v srdci Broumovska – ideální výchozí bod pro vaše výlety.",
-    en: "A cosy stay in the heart of the Broumov region — your perfect base for trips.",
+    cs: "Tvoje útočiště v srdci Broumovska – malý byt ideální pro dva, kde si v klidu odpočineš.",
+    en: "Your hideaway in the heart of the Broumov region — a small flat ideal for two, where you can truly rest.",
+  },
+  "hero.eyebrow": { cs: "Skřivánkov", en: "Skřivánkov" },
+  "hero.intro": {
+    cs: "Broumovské hnízdo není jen ubytování – je to moje srdcovka, o kterou se chci podělit. Preferuji cestování, které je ohleduplné k místu, k přírodě i k lidem. Proto je Hnízdo samoobslužné, postavené na vzájemné důvěře a respektu k Broumovsku. Žádné zbytečné služby, žádné formality. Jen ty, klid a kousek domova uprostřed unikátní krajiny.",
+    en: "Broumov Nest isn't just a place to stay — it's my heart project, something I want to share. I prefer travel that respects the place, nature and people. That's why the Nest is self-service, built on mutual trust and respect for the Broumov region. No unnecessary services, no formalities. Just you, calm and a bit of home in a unique landscape.",
   },
 
   // hero
   "hero.cta": { cs: "Prozkoumat ubytování", en: "Explore the stay" },
-  "hero.cta2": { cs: "Doporučené trasy", en: "Recommended routes" },
+  "hero.cta2": { cs: "Vybavení a fotky", en: "Amenities & photos" },
 
   // info bar
   "info.address": { cs: "U Horní brány 22, Broumov", en: "U Horní brány 22, Broumov" },
