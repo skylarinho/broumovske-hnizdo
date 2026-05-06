@@ -9,13 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VybaveniRouteImport } from './routes/vybaveni'
 import { Route as UbytovaniRouteImport } from './routes/ubytovani'
 import { Route as TrasyRouteImport } from './routes/trasy'
+import { Route as PrijezdRouteImport } from './routes/prijezd'
 import { Route as OkoliRouteImport } from './routes/okoli'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as CenyRouteImport } from './routes/ceny'
 import { Route as IndexRouteImport } from './routes/index'
 
+const VybaveniRoute = VybaveniRouteImport.update({
+  id: '/vybaveni',
+  path: '/vybaveni',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UbytovaniRoute = UbytovaniRouteImport.update({
   id: '/ubytovani',
   path: '/ubytovani',
@@ -24,6 +31,11 @@ const UbytovaniRoute = UbytovaniRouteImport.update({
 const TrasyRoute = TrasyRouteImport.update({
   id: '/trasy',
   path: '/trasy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrijezdRoute = PrijezdRouteImport.update({
+  id: '/prijezd',
+  path: '/prijezd',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OkoliRoute = OkoliRouteImport.update({
@@ -52,16 +64,20 @@ export interface FileRoutesByFullPath {
   '/ceny': typeof CenyRoute
   '/kontakt': typeof KontaktRoute
   '/okoli': typeof OkoliRoute
+  '/prijezd': typeof PrijezdRoute
   '/trasy': typeof TrasyRoute
   '/ubytovani': typeof UbytovaniRoute
+  '/vybaveni': typeof VybaveniRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ceny': typeof CenyRoute
   '/kontakt': typeof KontaktRoute
   '/okoli': typeof OkoliRoute
+  '/prijezd': typeof PrijezdRoute
   '/trasy': typeof TrasyRoute
   '/ubytovani': typeof UbytovaniRoute
+  '/vybaveni': typeof VybaveniRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -69,22 +85,42 @@ export interface FileRoutesById {
   '/ceny': typeof CenyRoute
   '/kontakt': typeof KontaktRoute
   '/okoli': typeof OkoliRoute
+  '/prijezd': typeof PrijezdRoute
   '/trasy': typeof TrasyRoute
   '/ubytovani': typeof UbytovaniRoute
+  '/vybaveni': typeof VybaveniRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/ceny' | '/kontakt' | '/okoli' | '/trasy' | '/ubytovani'
+  fullPaths:
+    | '/'
+    | '/ceny'
+    | '/kontakt'
+    | '/okoli'
+    | '/prijezd'
+    | '/trasy'
+    | '/ubytovani'
+    | '/vybaveni'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/ceny' | '/kontakt' | '/okoli' | '/trasy' | '/ubytovani'
+  to:
+    | '/'
+    | '/ceny'
+    | '/kontakt'
+    | '/okoli'
+    | '/prijezd'
+    | '/trasy'
+    | '/ubytovani'
+    | '/vybaveni'
   id:
     | '__root__'
     | '/'
     | '/ceny'
     | '/kontakt'
     | '/okoli'
+    | '/prijezd'
     | '/trasy'
     | '/ubytovani'
+    | '/vybaveni'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -92,12 +128,21 @@ export interface RootRouteChildren {
   CenyRoute: typeof CenyRoute
   KontaktRoute: typeof KontaktRoute
   OkoliRoute: typeof OkoliRoute
+  PrijezdRoute: typeof PrijezdRoute
   TrasyRoute: typeof TrasyRoute
   UbytovaniRoute: typeof UbytovaniRoute
+  VybaveniRoute: typeof VybaveniRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/vybaveni': {
+      id: '/vybaveni'
+      path: '/vybaveni'
+      fullPath: '/vybaveni'
+      preLoaderRoute: typeof VybaveniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ubytovani': {
       id: '/ubytovani'
       path: '/ubytovani'
@@ -110,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/trasy'
       fullPath: '/trasy'
       preLoaderRoute: typeof TrasyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prijezd': {
+      id: '/prijezd'
+      path: '/prijezd'
+      fullPath: '/prijezd'
+      preLoaderRoute: typeof PrijezdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/okoli': {
@@ -148,8 +200,10 @@ const rootRouteChildren: RootRouteChildren = {
   CenyRoute: CenyRoute,
   KontaktRoute: KontaktRoute,
   OkoliRoute: OkoliRoute,
+  PrijezdRoute: PrijezdRoute,
   TrasyRoute: TrasyRoute,
   UbytovaniRoute: UbytovaniRoute,
+  VybaveniRoute: VybaveniRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

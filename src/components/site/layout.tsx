@@ -117,33 +117,21 @@ export function Footer() {
   const scrollTo = useScrollToHash();
   return (
     <footer className="mt-24 border-t border-border bg-secondary/40">
-      <div className="container-prose py-12 grid gap-8 md:grid-cols-3">
-        <div>
-          <div className="flex items-center gap-2 mb-3">
-            <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent/40 text-deep">
-              <Leaf className="w-4 h-4" />
-            </span>
-            <span className="font-display text-lg font-semibold">{t("brand.name")}</span>
-          </div>
-          <p className="text-sm text-muted-foreground max-w-xs">{t("brand.tag")}</p>
+      <div className="container-prose py-10 text-sm text-muted-foreground">
+        <div className="flex items-center gap-2 mb-3 text-foreground">
+          <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent/40 text-deep">
+            <Leaf className="w-4 h-4" />
+          </span>
+          <span className="font-display text-lg font-semibold">{t("brand.name")}</span>
         </div>
-        <div>
-          <h4 className="font-display text-sm font-semibold mb-3">{t("footer.quickLinks")}</h4>
-          <ul className="space-y-2 text-sm">
-            {links.map((l) => (
-              <li key={l.hash}>
-                <button onClick={() => scrollTo(l.hash)} className="text-muted-foreground hover:text-foreground">
-                  {t(l.key)}
-                </button>
-              </li>
-            ))}
-          </ul>
+        <p className="max-w-xl leading-relaxed">
+          {t("footer.lovenote")}
+        </p>
+        <div className="mt-6 flex flex-wrap gap-x-6 gap-y-1">
+          <span>U Horní brány 22, Broumov</span>
+          <a href="tel:+420776662256" className="hover:text-foreground">+420 776 66 22 56</a>
         </div>
-        <div className="text-sm text-muted-foreground">
-          <p>U Horní brány 22, Broumov</p>
-          <p>+420 776 66 22 56</p>
-          <p className="mt-6">© 2026 {t("brand.name")}. {t("footer.rights")}</p>
-        </div>
+        <p className="mt-6 text-xs">© 2026 {t("brand.name")}. {t("footer.rights")}</p>
       </div>
     </footer>
   );

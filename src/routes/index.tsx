@@ -41,18 +41,64 @@ const pois = [
 const typeIcon: Record<TrailType, any> = { hike: Footprints, bike: Bike, car: Car };
 
 function HomePage() {
-  const t = useT();
   return (
     <>
       <Hero />
       <InfoBar />
-      <BookSection />
       <StaySection />
       <PricesSection />
       <AreaSection />
+      <MidBookCTA />
       <RoutesSection />
-      <ChecklistSection />
+      <BookSection />
+      <ArrivalLink />
     </>
+  );
+}
+
+function MidBookCTA() {
+  const t = useT();
+  const { lang } = useLang();
+  return (
+    <section className="container-prose pt-20">
+      <div className="card-soft p-8 md:p-10 text-center bg-gradient-to-br from-secondary/60 to-accent/20">
+        <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-3">
+          {lang === "cs" ? "Zaujalo vás to?" : "Like what you see?"}
+        </p>
+        <h3 className="font-display text-2xl md:text-3xl font-semibold text-deep">
+          {lang === "cs" ? "Vyberte termín a napište nám" : "Pick your dates and message us"}
+        </h3>
+        <Button asChild size="lg" className="rounded-full mt-6">
+          <a href="#book">
+            {t("book.title")} <ArrowRight className="ml-2 w-4 h-4" />
+          </a>
+        </Button>
+      </div>
+    </section>
+  );
+}
+
+function ArrivalLink() {
+  const t = useT();
+  const { lang } = useLang();
+  return (
+    <section className="container-prose pt-20 pb-12">
+      <Link
+        to="/prijezd"
+        className="card-soft card-soft-hover p-6 flex items-center justify-between gap-4"
+      >
+        <div>
+          <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-1">{t("nav.contact")}</p>
+          <h3 className="font-display text-xl font-semibold text-deep">
+            {t("contact.checklist.title")}
+          </h3>
+          <p className="text-sm text-muted-foreground mt-1">
+            {lang === "cs" ? "Praktický průvodce krok za krokem." : "A practical step-by-step guide."}
+          </p>
+        </div>
+        <ArrowRight className="w-5 h-5 text-deep shrink-0" />
+      </Link>
+    </section>
   );
 }
 
@@ -156,7 +202,7 @@ function StaySection() {
       <div className="mt-2 flex items-center justify-between">
         <p className="text-xs text-muted-foreground">{t("common.swipe")}</p>
         <Button asChild variant="outline" size="sm" className="rounded-full">
-          <Link to="/ubytovani">
+          <Link to="/vybaveni">
             {t("stay.amenities")} <ArrowRight className="ml-1 w-3 h-3" />
           </Link>
         </Button>
@@ -369,31 +415,6 @@ function TrailDetail({ trail }: { trail: Trail }) {
   );
 }
 
-function ChecklistSection() {
-  const t = useT();
-  const items = [
-    "Zadní vchod zamknout",
-    "Radiátory zapojit (speciální sazba)",
-    "Bojler nastavit na ECO",
-    "Lednici zapnout kolečkem",
-    "Při odjezdu vše vypnout",
-    "Prostěradla dát do koše",
-    "Vysypat odpadky",
-  ];
-  return (
-    <section id="checklist" className="container-prose pt-20 pb-12 scroll-mt-20">
-      <SectionHeader eyebrow={t("nav.contact")} title={t("contact.checklist.title")} />
-      <ul className="grid sm:grid-cols-2 gap-2 max-w-3xl">
-        {items.map((item) => (
-          <li key={item} className="flex items-center gap-3 p-3 card-soft text-sm">
-            <Check className="w-4 h-4 text-deep shrink-0" />
-            {item}
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
 
 export function BaroqueOrnament({ className }: { className?: string }) {
   return (
