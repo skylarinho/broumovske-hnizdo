@@ -124,7 +124,7 @@ export function Footer() {
           <span className="font-display text-lg font-semibold">{t("brand.name")}</span>
         </div>
         <p className="max-w-xl leading-relaxed text-foreground/80">{t("footer.short")}</p>
-        <p className="mt-3 max-w-xl leading-relaxed text-xs">{t("footer.lovenote")}</p>
+        
         <div className="mt-6 flex flex-wrap gap-x-6 gap-y-1">
           <span>U Horní brány 22, Broumov</span>
           <a href="tel:+420776662256" className="hover:text-foreground">+420 776 66 22 56</a>
