@@ -1,13 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MapPin, ParkingSquare, Phone, BedDouble, Mountain, Coins, Map } from "lucide-react";
-import { useT } from "@/i18n";
+import { ArrowRight, MapPin, ParkingSquare, Phone, Coins, Footprints, Bike, Car, Mountain, Clock, ExternalLink, ShoppingBasket, Landmark, UtensilsCrossed, Beer, Church, Check } from "lucide-react";
+import { useState } from "react";
+import { useLang, useT } from "@/i18n";
 import { Button } from "@/components/ui/button";
+import { BookingWidget } from "@/components/site/booking";
+import { HScroll } from "@/components/site/h-scroll";
+import { trails, type Trail, type TrailType } from "@/data/trails";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Broumovské hnízdo — ubytování v Broumově" },
-      { name: "description", content: "Útulné ubytování 1+kk v centru Broumova. Ideální výchozí bod pro výlety." },
+      { name: "description", content: "Útulné ubytování 1+kk v centru Broumova. Rezervujte termín přes WhatsApp." },
       { property: "og:title", content: "Broumovské hnízdo" },
       { property: "og:description", content: "Útulné ubytování v srdci Broumovska s tipy na výlety." },
     ],
@@ -15,13 +20,38 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
+const galleryPhotos = [
+  "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=70",
+  "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1200&q=70",
+  "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=70",
+  "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=1200&q=70",
+  "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=70",
+  "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?auto=format&fit=crop&w=1200&q=70",
+];
+
+const pois = [
+  { icon: ShoppingBasket, name: { cs: "Lidl", en: "Lidl" }, distance: "100 m", desc: { cs: "Nejbližší obchod.", en: "Closest grocery." } },
+  { icon: ParkingSquare, name: { cs: "Parkování", en: "Parking" }, distance: "50 m", desc: { cs: "Bezplatné u vchodu.", en: "Free, near the door." } },
+  { icon: Landmark, name: { cs: "Klášter Broumov", en: "Broumov Monastery" }, distance: "100 m", desc: { cs: "Barokní skvost.", en: "Baroque gem." } },
+  { icon: UtensilsCrossed, name: { cs: "Restaurace Lokál", en: "Lokál" }, distance: "300 m", desc: { cs: "Teplá jídla, živá hudba.", en: "Hot food, live music." } },
+  { icon: Beer, name: { cs: "U tří růží", en: "U tří růží" }, distance: "400 m", desc: { cs: "Pivo Opat, domácí kuchyně.", en: "Local Opat beer." } },
+  { icon: Church, name: { cs: "Dřevěný kostel", en: "Wooden church" }, distance: "1,5 km", desc: { cs: "Jeden z nejstarších v ČR.", en: "Oldest wooden church." } },
+];
+
+const typeIcon: Record<TrailType, any> = { hike: Footprints, bike: Bike, car: Car };
+
 function HomePage() {
   const t = useT();
   return (
     <>
       <Hero />
       <InfoBar />
-      <Teasers />
+      <BookSection />
+      <StaySection />
+      <PricesSection />
+      <AreaSection />
+      <RoutesSection />
+      <ChecklistSection />
     </>
   );
 }
@@ -29,7 +59,7 @@ function HomePage() {
 function Hero() {
   const t = useT();
   return (
-    <section className="relative overflow-hidden">
+    <section id="top" className="relative overflow-hidden">
       <div
         aria-hidden
         className="absolute inset-0 -z-10"
@@ -39,7 +69,7 @@ function Hero() {
         }}
       />
       <BaroqueOrnament className="absolute top-6 left-1/2 -translate-x-1/2 w-40 text-deep/15" />
-      <div className="container-prose pt-20 pb-24 md:pt-28 md:pb-32 text-center">
+      <div className="container-prose pt-16 pb-16 md:pt-24 md:pb-20 text-center">
         <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-4">Broumovsko · 2026</p>
         <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.05] text-deep">
           {t("brand.name")}
@@ -47,14 +77,12 @@ function Hero() {
         <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
           {t("brand.tag")}
         </p>
-        <div className="mt-10 flex flex-wrap gap-3 justify-center">
+        <div className="mt-8 flex flex-wrap gap-3 justify-center">
           <Button asChild size="lg" className="rounded-full">
-            <Link to="/ubytovani">
-              {t("hero.cta")} <ArrowRight className="ml-2 w-4 h-4" />
-            </Link>
+            <a href="#book">{t("book.title")} <ArrowRight className="ml-2 w-4 h-4" /></a>
           </Button>
           <Button asChild size="lg" variant="outline" className="rounded-full">
-            <Link to="/trasy">{t("hero.cta2")}</Link>
+            <a href="#trasy">{t("hero.cta2")}</a>
           </Button>
         </div>
       </div>
@@ -71,10 +99,10 @@ function InfoBar() {
     { icon: Coins, label: t("info.priceFrom") },
   ];
   return (
-    <section className="container-prose -mt-10 relative z-10">
+    <section className="container-prose -mt-8 relative z-10">
       <div className="card-soft grid grid-cols-2 md:grid-cols-4 gap-px bg-border/60 overflow-hidden">
         {items.map((it) => (
-          <div key={it.label} className="bg-card p-5 flex items-start gap-3">
+          <div key={it.label} className="bg-card p-4 flex items-start gap-3">
             <span className="inline-flex w-9 h-9 items-center justify-center rounded-full bg-accent/30 text-deep shrink-0">
               <it.icon className="w-4 h-4" />
             </span>
@@ -86,29 +114,283 @@ function InfoBar() {
   );
 }
 
-function Teasers() {
+function SectionHeader({ eyebrow, title, lead }: { eyebrow: string; title: string; lead?: string }) {
+  return (
+    <header className="max-w-2xl mb-8">
+      <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-3">{eyebrow}</p>
+      <h2 className="font-display text-3xl md:text-4xl font-semibold text-deep">{title}</h2>
+      {lead && <p className="mt-4 text-muted-foreground">{lead}</p>}
+    </header>
+  );
+}
+
+function BookSection() {
+  const t = useT();
+  return (
+    <section id="book" className="container-prose pt-20 scroll-mt-20">
+      <SectionHeader eyebrow={t("nav.contact")} title={t("book.title")} lead={t("book.lead")} />
+      <BookingWidget />
+    </section>
+  );
+}
+
+function StaySection() {
+  const t = useT();
+  const [lightbox, setLightbox] = useState<string | null>(null);
+  return (
+    <section id="ubytovani" className="container-prose pt-20 scroll-mt-20">
+      <SectionHeader eyebrow={t("nav.stay")} title={t("stay.title")} lead={t("stay.lead")} />
+
+      <HScroll>
+        {galleryPhotos.map((src) => (
+          <button
+            key={src}
+            onClick={() => setLightbox(src)}
+            className="snap-start shrink-0 w-[78%] sm:w-[48%] md:w-[32%] aspect-[4/3] overflow-hidden rounded-xl card-soft card-soft-hover"
+          >
+            <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
+          </button>
+        ))}
+      </HScroll>
+
+      <div className="mt-2 flex items-center justify-between">
+        <p className="text-xs text-muted-foreground">{t("common.swipe")}</p>
+        <Button asChild variant="outline" size="sm" className="rounded-full">
+          <Link to="/ubytovani">
+            {t("stay.amenities")} <ArrowRight className="ml-1 w-3 h-3" />
+          </Link>
+        </Button>
+      </div>
+
+      {lightbox && (
+        <div onClick={() => setLightbox(null)} className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 cursor-zoom-out">
+          <img src={lightbox} alt="" className="max-h-full max-w-full rounded-lg" />
+        </div>
+      )}
+    </section>
+  );
+}
+
+function PricesSection() {
   const t = useT();
   const cards = [
-    { to: "/ubytovani", icon: BedDouble, title: t("nav.stay"), desc: t("stay.lead") },
-    { to: "/trasy", icon: Mountain, title: t("nav.routes"), desc: t("routes.lead") },
-    { to: "/okoli", icon: Map, title: t("nav.area"), desc: t("area.lead") },
-  ] as const;
+    { title: t("prices.friends"), a: { label: t("prices.nights3"), price: "400 Kč" }, b: { label: t("prices.nights12"), price: "500 Kč" }, featured: true },
+    { title: t("prices.friendsOfFriends"), a: { label: t("prices.nights3"), price: "600 Kč" }, b: { label: t("prices.nights12"), price: "700 Kč" }, featured: false },
+  ];
   return (
-    <section className="container-prose mt-24 mb-12">
-      <div className="grid md:grid-cols-3 gap-6">
+    <section id="ceny" className="container-prose pt-20 scroll-mt-20">
+      <SectionHeader eyebrow={t("nav.prices")} title={t("prices.title")} />
+      <div className="grid md:grid-cols-2 gap-6">
         {cards.map((c) => (
-          <Link key={c.to} to={c.to} className="card-soft card-soft-hover p-7 block">
-            <span className="inline-flex w-11 h-11 items-center justify-center rounded-full bg-accent/40 text-deep mb-5">
-              <c.icon className="w-5 h-5" />
-            </span>
-            <h3 className="font-display text-xl font-semibold mb-2">{c.title}</h3>
-            <p className="text-sm text-muted-foreground line-clamp-3">{c.desc}</p>
-            <span className="mt-5 inline-flex items-center text-sm text-deep font-medium">
-              {t("routes.more")} <ArrowRight className="ml-1 w-4 h-4" />
-            </span>
-          </Link>
+          <div key={c.title} className={`card-soft p-7 ${c.featured ? "ring-1 ring-deep/30 bg-secondary/40" : ""}`}>
+            <h3 className="font-display text-xl font-semibold mb-5">{c.title}</h3>
+            <div className="space-y-3">
+              {[c.a, c.b].map((row) => (
+                <div key={row.label} className="flex items-baseline justify-between border-b border-border pb-3 last:border-0">
+                  <span className="text-sm text-muted-foreground">{row.label}</span>
+                  <span className="font-display text-2xl font-semibold text-deep">
+                    {row.price}<span className="text-sm text-muted-foreground"> / noc</span>
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
+      <ul className="grid sm:grid-cols-2 gap-2 mt-6 max-w-3xl">
+        {(["prices.t1","prices.t2","prices.t3","prices.t4","prices.t5"] as const).map((k) => (
+          <li key={k} className="flex items-start gap-2 text-sm text-muted-foreground">
+            <Check className="w-4 h-4 text-deep mt-0.5 shrink-0" />
+            <span>{t(k)}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+function AreaSection() {
+  const t = useT();
+  const { lang } = useLang();
+  return (
+    <section id="okoli" className="container-prose pt-20 scroll-mt-20">
+      <SectionHeader eyebrow={t("nav.area")} title={t("area.title")} lead={t("area.lead")} />
+      <HScroll>
+        {pois.map((p) => (
+          <article key={p.name.cs} className="snap-start shrink-0 w-[78%] sm:w-[44%] md:w-[30%] card-soft p-5 flex flex-col">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="inline-flex w-10 h-10 items-center justify-center rounded-full bg-accent/40 text-deep">
+                <p.icon className="w-4 h-4" />
+              </span>
+              <div>
+                <h3 className="font-display font-semibold">{p.name[lang]}</h3>
+                <p className="text-xs text-muted-foreground">{p.distance}</p>
+              </div>
+            </div>
+            <p className="text-sm text-muted-foreground">{p.desc[lang]}</p>
+          </article>
+        ))}
+      </HScroll>
+      <p className="text-xs text-muted-foreground mt-2">{t("common.swipe")}</p>
+    </section>
+  );
+}
+
+function RoutesSection() {
+  const t = useT();
+  const { lang } = useLang();
+  const [filter, setFilter] = useState<"all" | TrailType>("all");
+  const [active, setActive] = useState<Trail | null>(null);
+  const visible = filter === "all" ? trails : trails.filter((x) => x.type === filter);
+  const filters = [
+    { key: "all" as const, label: t("routes.all") },
+    { key: "hike" as const, label: t("routes.hike") },
+    { key: "bike" as const, label: t("routes.bike") },
+    { key: "car" as const, label: t("routes.car") },
+  ];
+  return (
+    <section id="trasy" className="container-prose pt-20 scroll-mt-20">
+      <SectionHeader eyebrow={t("nav.routes")} title={t("routes.title")} lead={t("routes.lead")} />
+      <div className="flex flex-wrap gap-2 mb-6">
+        {filters.map((f) => (
+          <button
+            key={f.key}
+            onClick={() => setFilter(f.key)}
+            className={`px-4 py-2 rounded-full text-sm border transition-colors ${
+              filter === f.key ? "bg-deep text-primary-foreground border-deep" : "bg-card border-border hover:border-deep/40"
+            }`}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
+      <HScroll>
+        {visible.map((trail) => {
+          const Icon = typeIcon[trail.type];
+          return (
+            <button
+              key={trail.id}
+              onClick={() => setActive(trail)}
+              className="snap-start shrink-0 w-[80%] sm:w-[48%] md:w-[33%] card-soft card-soft-hover overflow-hidden flex flex-col text-left"
+            >
+              <div className="aspect-[5/3] overflow-hidden bg-muted">
+                <img src={trail.photos[0]} alt="" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="p-5 flex flex-col flex-1">
+                <div className="flex items-center gap-2 text-xs text-deep/80 mb-2">
+                  <Icon className="w-3.5 h-3.5" />
+                  <span className="uppercase tracking-wider">{t(`diff.${trail.difficulty}` as const)}</span>
+                </div>
+                <h3 className="font-display text-lg font-semibold mb-2">{trail.name[lang]}</h3>
+                <p className="text-sm text-muted-foreground line-clamp-2">{trail.short[lang]}</p>
+                <dl className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground mt-3">
+                  <div className="flex items-center gap-1"><ArrowRight className="w-3 h-3" />{trail.lengthKm} km</div>
+                  <div className="flex items-center gap-1"><Mountain className="w-3 h-3" />{trail.elevationM} m</div>
+                  <div className="flex items-center gap-1"><Clock className="w-3 h-3" />{trail.duration[lang]}</div>
+                </dl>
+              </div>
+            </button>
+          );
+        })}
+      </HScroll>
+      <p className="text-xs text-muted-foreground mt-2">{t("common.swipe")}</p>
+
+      <Sheet open={!!active} onOpenChange={(o) => !o && setActive(null)}>
+        <SheetContent side="right" className="w-full sm:max-w-xl overflow-y-auto">
+          {active && <TrailDetail trail={active} />}
+        </SheetContent>
+      </Sheet>
+    </section>
+  );
+}
+
+function TrailDetail({ trail }: { trail: Trail }) {
+  const t = useT();
+  const { lang } = useLang();
+  const Icon = typeIcon[trail.type];
+  return (
+    <>
+      <SheetHeader>
+        <div className="flex items-center gap-2 text-xs text-deep/80 mb-1">
+          <Icon className="w-3.5 h-3.5" />
+          <span className="uppercase tracking-wider">{t(`diff.${trail.difficulty}` as const)}</span>
+        </div>
+        <SheetTitle className="font-display text-2xl text-left">{trail.name[lang]}</SheetTitle>
+      </SheetHeader>
+
+      <dl className="grid grid-cols-3 gap-3 mt-6">
+        <div className="rounded-lg border border-border bg-secondary/40 p-3">
+          <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{t("routes.length")}</div>
+          <div className="font-display text-lg text-deep">{trail.lengthKm} km</div>
+        </div>
+        <div className="rounded-lg border border-border bg-secondary/40 p-3">
+          <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{t("routes.elevation")}</div>
+          <div className="font-display text-lg text-deep">{trail.elevationM} m</div>
+        </div>
+        <div className="rounded-lg border border-border bg-secondary/40 p-3">
+          <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{t("routes.duration")}</div>
+          <div className="font-display text-lg text-deep">{trail.duration[lang]}</div>
+        </div>
+      </dl>
+
+      <p className="mt-6 text-sm leading-relaxed">{trail.description[lang]}</p>
+
+      {trail.tip && (
+        <div className="mt-5 p-4 rounded-lg border border-deep/15 bg-accent/15 text-sm">
+          <div className="font-medium mb-1">{t("routes.tip")}</div>
+          <p className="text-muted-foreground">{trail.tip[lang]}</p>
+        </div>
+      )}
+
+      <h4 className="font-display font-semibold mt-8 mb-3">{t("routes.steps")}</h4>
+      <ol className="space-y-2">
+        {trail.steps.map((s, i) => (
+          <li key={i} className="flex gap-3 text-sm">
+            <span className="inline-flex w-6 h-6 shrink-0 items-center justify-center rounded-full bg-accent/40 text-deep text-xs font-medium">{i + 1}</span>
+            <span className="pt-0.5">{s[lang]}</span>
+          </li>
+        ))}
+      </ol>
+
+      <div className="flex flex-wrap gap-2 mt-8">
+        {trail.links.googleMaps && (
+          <a href={trail.links.googleMaps} target="_blank" rel="noreferrer" className="text-xs px-3 py-1.5 rounded-full border border-border hover:border-deep/40 inline-flex items-center gap-1">
+            Google Maps <ExternalLink className="w-3 h-3" />
+          </a>
+        )}
+        {trail.links.mapyCz && (
+          <a href={trail.links.mapyCz} target="_blank" rel="noreferrer" className="text-xs px-3 py-1.5 rounded-full border border-border hover:border-deep/40 inline-flex items-center gap-1">
+            Mapy.cz <ExternalLink className="w-3 h-3" />
+          </a>
+        )}
+      </div>
+    </>
+  );
+}
+
+function ChecklistSection() {
+  const t = useT();
+  const items = [
+    "Zadní vchod zamknout",
+    "Radiátory zapojit (speciální sazba)",
+    "Bojler nastavit na ECO",
+    "Lednici zapnout kolečkem",
+    "Při odjezdu vše vypnout",
+    "Prostěradla dát do koše",
+    "Vysypat odpadky",
+  ];
+  return (
+    <section id="checklist" className="container-prose pt-20 pb-12 scroll-mt-20">
+      <SectionHeader eyebrow={t("nav.contact")} title={t("contact.checklist.title")} />
+      <ul className="grid sm:grid-cols-2 gap-2 max-w-3xl">
+        {items.map((item) => (
+          <li key={item} className="flex items-center gap-3 p-3 card-soft text-sm">
+            <Check className="w-4 h-4 text-deep shrink-0" />
+            {item}
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
