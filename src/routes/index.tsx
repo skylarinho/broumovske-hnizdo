@@ -118,10 +118,10 @@ function Hero() {
         <h1 className="font-display text-5xl md:text-7xl font-semibold leading-[1.05] text-deep">
           {t("brand.name")}
         </h1>
-        <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+        <p className="mt-6 font-display text-2xl md:text-3xl text-deep max-w-2xl mx-auto leading-snug">
           {t("brand.tag")}
         </p>
-        <p className="mt-5 text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           {t("hero.intro")}
         </p>
         <div className="mt-8 flex flex-wrap gap-3 justify-center">
