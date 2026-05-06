@@ -50,8 +50,8 @@ export const dict = {
   "prices.terms": { cs: "Podmínky", en: "Terms" },
   "prices.t1": { cs: "Platba předem na účet", en: "Payment in advance by transfer" },
   "prices.t2": { cs: "Minimální délka pobytu: 1 noc", en: "Minimum stay: 1 night" },
-  "prices.t3": { cs: "Check-in: 14:00–18:00 (nebo dle dohody)", en: "Check-in: 2–6 pm (or by agreement)" },
-  "prices.t4": { cs: "Check-out: do 11:00", en: "Check-out: by 11 am" },
+  "prices.t3": { cs: "Check-in i check-out flexibilně, dle dohody", en: "Check-in & check-out flexible, by agreement" },
+  "prices.t4": { cs: "Pokud není rezervace před/po, lze i během dne", en: "If there's no booking before/after, anytime during the day works" },
   "prices.t5": { cs: "Bez kauce", en: "No deposit" },
 
   "area.title": { cs: "Poloha a okolí", en: "Location & surroundings" },
@@ -102,6 +102,10 @@ export const dict = {
 
   "footer.rights": { cs: "Všechna práva vyhrazena.", en: "All rights reserved." },
   "footer.quickLinks": { cs: "Rychlé odkazy", en: "Quick links" },
+  "footer.lovenote": {
+    cs: "Dělám s láskou. Vystudoval jsem cestovní ruch na VŠPJ a pracuji v Nadaci Partnerství — proto je hnízdo v duchu udržitelného turismu: samoobslužné, postavené na vzájemné důvěře a ohleduplnosti k místu i k sobě navzájem. — Eman",
+    en: "Made with love. I studied tourism at VŠPJ and work at the Partnership Foundation — so the Nest follows sustainable tourism: self-service, built on mutual trust and care for the place and each other. — Eman",
+  },
 
   "book.title": { cs: "Rezervovat pobyt", en: "Book your stay" },
   "book.lead": {
