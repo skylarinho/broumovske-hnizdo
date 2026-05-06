@@ -61,8 +61,8 @@ export const dict = {
 
   "area.title": { cs: "Poloha a okolí", en: "Location & surroundings" },
   "area.lead": {
-    cs: "Broumovské hnízdo se nachází v klidné části Broumova, kousek od kláštera a přírodních krás Broumovských stěn.",
-    en: "Broumov Nest sits in a quiet part of Broumov, a short walk from the monastery and the natural wonders of Broumov Walls.",
+    cs: "Hnízdo je v klidné části Broumova, kousek od kláštera a přírodních krás Broumovských stěn.",
+    en: "The Nest sits in a quiet part of Broumov, a short walk from the monastery and the natural wonders of Broumov Walls.",
   },
   "area.mapycz": { cs: "Mapy.cz", en: "Mapy.cz" },
   "area.gmaps": { cs: "Google Maps", en: "Google Maps" },
