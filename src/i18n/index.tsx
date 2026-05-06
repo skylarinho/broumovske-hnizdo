@@ -126,8 +126,8 @@ export const dict = {
 
   "history.title": { cs: "Historie domu", en: "House history" },
   "history.lead": {
-    cs: "Tady brzy doplním příběh domu a interaktivní porovnání před / po rekonstrukci.",
-    en: "Soon I'll add the story of the house and an interactive before/after slider.",
+    cs: "Dům byl na spadnutí, ale prošel velmi kvalitní a citlivou rekonstrukcí.",
+    en: "The house was on the verge of collapse, but went through a careful, high-quality renovation.",
   },
   "history.before": { cs: "Před", en: "Before" },
   "history.after": { cs: "Po", en: "After" },
