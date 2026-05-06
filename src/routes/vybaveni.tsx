@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Check, X, Wifi, Tv, Music, UtensilsCrossed, Refrigerator, Microwave, Coffee, Bath, Wind, Flame, ShowerHead, BedDouble, Shirt, Cookie } from "lucide-react";
+import { ArrowLeft, Check, X, Wifi, Tv, Music, UtensilsCrossed, Refrigerator, Microwave, Coffee, Bath, Wind, Flame, ShowerHead, BedDouble, Cookie, Bike, Dices } from "lucide-react";
 import { useLang, useT } from "@/i18n";
 
 export const Route = createFileRoute("/vybaveni")({
