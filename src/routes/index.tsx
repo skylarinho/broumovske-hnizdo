@@ -51,6 +51,8 @@ function HomePage() {
       <AreaSection />
       <MidBookCTA />
       <RoutesSection />
+      <HistorySection />
+      <TestimonialsSection />
       <BookSection />
       <ArrivalLink />
     </>
