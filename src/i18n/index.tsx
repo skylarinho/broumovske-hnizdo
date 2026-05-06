@@ -103,6 +103,13 @@ export const dict = {
   "footer.rights": { cs: "Všechna práva vyhrazena.", en: "All rights reserved." },
   "footer.quickLinks": { cs: "Rychlé odkazy", en: "Quick links" },
 
+  "book.title": { cs: "Rezervovat pobyt", en: "Book your stay" },
+  "book.lead": {
+    cs: "Vyberte termín a napište nám rovnou na WhatsApp – odpovíme obvykle do hodiny.",
+    en: "Pick your dates and ping us on WhatsApp – we usually reply within an hour.",
+  },
+  "common.swipe": { cs: "← táhněte pro více →", en: "← swipe for more →" },
+
   // difficulties
   "diff.easy": { cs: "lehká", en: "easy" },
   "diff.medium": { cs: "střední", en: "medium" },
