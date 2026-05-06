@@ -41,18 +41,64 @@ const pois = [
 const typeIcon: Record<TrailType, any> = { hike: Footprints, bike: Bike, car: Car };
 
 function HomePage() {
-  const t = useT();
   return (
     <>
       <Hero />
       <InfoBar />
-      <BookSection />
       <StaySection />
       <PricesSection />
       <AreaSection />
+      <MidBookCTA />
       <RoutesSection />
-      <ChecklistSection />
+      <BookSection />
+      <ArrivalLink />
     </>
+  );
+}
+
+function MidBookCTA() {
+  const t = useT();
+  const { lang } = useLang();
+  return (
+    <section className="container-prose pt-20">
+      <div className="card-soft p-8 md:p-10 text-center bg-gradient-to-br from-secondary/60 to-accent/20">
+        <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-3">
+          {lang === "cs" ? "Zaujalo vás to?" : "Like what you see?"}
+        </p>
+        <h3 className="font-display text-2xl md:text-3xl font-semibold text-deep">
+          {lang === "cs" ? "Vyberte termín a napište nám" : "Pick your dates and message us"}
+        </h3>
+        <Button asChild size="lg" className="rounded-full mt-6">
+          <a href="#book">
+            {t("book.title")} <ArrowRight className="ml-2 w-4 h-4" />
+          </a>
+        </Button>
+      </div>
+    </section>
+  );
+}
+
+function ArrivalLink() {
+  const t = useT();
+  const { lang } = useLang();
+  return (
+    <section className="container-prose pt-20 pb-12">
+      <Link
+        to="/prijezd"
+        className="card-soft card-soft-hover p-6 flex items-center justify-between gap-4"
+      >
+        <div>
+          <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-1">{t("nav.contact")}</p>
+          <h3 className="font-display text-xl font-semibold text-deep">
+            {t("contact.checklist.title")}
+          </h3>
+          <p className="text-sm text-muted-foreground mt-1">
+            {lang === "cs" ? "Praktický průvodce krok za krokem." : "A practical step-by-step guide."}
+          </p>
+        </div>
+        <ArrowRight className="w-5 h-5 text-deep shrink-0" />
+      </Link>
+    </section>
   );
 }
 
