@@ -36,10 +36,10 @@ export const dict = {
   "info.priceFrom": { cs: "Od 400 Kč / noc", en: "From 400 CZK / night" },
 
   // sections
-  "stay.title": { cs: "Vaše pohodlné zázemí", en: "Your cosy base" },
+  "stay.title": { cs: "Tvoje pohodlné zázemí", en: "Your cosy base" },
   "stay.lead": {
-    cs: "Útulný byt 1+kk o 24 m² s plně vybavenou kuchyní, koupelnou se sprchou a rozkládací postelí. Vinylová podlaha, akumulační radiátory.",
-    en: "A cosy 24 m² studio with a fully equipped kitchen, walk-in shower and a sofa bed. Vinyl flooring, storage heaters.",
+    cs: "Útulný byt 1+kk o 24 m² – malý a útulný, ideálně pro dva. Plně vybavená kuchyň, koupelna se sprchou, rozkládací postel. Vinylová podlaha, akumulační radiátory.",
+    en: "A cosy 24 m² studio — small and snug, ideally for two. Fully equipped kitchen, walk-in shower, sofa bed. Vinyl flooring, storage heaters.",
   },
   "stay.gallery": { cs: "Galerie", en: "Gallery" },
   "stay.amenities": { cs: "Kompletní vybavení", en: "Full amenities" },
@@ -67,7 +67,7 @@ export const dict = {
   "area.mapycz": { cs: "Mapy.cz", en: "Mapy.cz" },
   "area.gmaps": { cs: "Google Maps", en: "Google Maps" },
 
-  "transport.title": { cs: "Jak se k nám dostat", en: "How to reach us" },
+  "transport.title": { cs: "Jak se k nám dostaneš", en: "How to reach us" },
   "transport.fromPrague": { cs: "Z Prahy", en: "From Prague" },
   "transport.fromBrno": { cs: "Z Brna", en: "From Brno" },
   "transport.fromHK": { cs: "Z Hradce Králové", en: "From Hradec Králové" },
@@ -76,7 +76,7 @@ export const dict = {
 
   "routes.title": { cs: "Výlety a trasy", en: "Trips & routes" },
   "routes.lead": {
-    cs: "Vybrané tipy z okolí — pěšky, na kole i autem. Klikněte na kartu pro detail.",
+    cs: "Vybrané tipy z okolí — pěšky, na kole i autem. Klikni na kartu pro detail.",
     en: "Curated tips around — on foot, by bike or by car. Tap a card for details.",
   },
   "routes.all": { cs: "Vše", en: "All" },
@@ -102,22 +102,43 @@ export const dict = {
   "contact.form.departure": { cs: "Datum odjezdu", en: "Departure" },
   "contact.form.message": { cs: "Zpráva", en: "Message" },
   "contact.form.submit": { cs: "Odeslat poptávku", en: "Send enquiry" },
-  "contact.whatsapp": { cs: "Napište nám na WhatsApp", en: "Message us on WhatsApp" },
+  "contact.whatsapp": { cs: "Napiš nám na WhatsApp", en: "Message us on WhatsApp" },
   "contact.checklist.title": { cs: "Co dělat při příjezdu a odjezdu", en: "Arrival & departure checklist" },
 
   "footer.rights": { cs: "Všechna práva vyhrazena.", en: "All rights reserved." },
   "footer.quickLinks": { cs: "Rychlé odkazy", en: "Quick links" },
+  "footer.short": {
+    cs: "Broumovské hnízdo: moje srdcovka / tvoje útočiště. Zakládám si na důvěře, samoobslužném konceptu a respektu k přírodě.",
+    en: "Broumov Nest: my heart project / your hideaway. Built on trust, a self-service concept and respect for nature.",
+  },
   "footer.lovenote": {
-    cs: "Dělám s láskou. Vystudoval jsem cestovní ruch na VŠPJ a pracuji v Nadaci Partnerství — proto je hnízdo v duchu udržitelného turismu: samoobslužné, postavené na vzájemné důvěře a ohleduplnosti k místu i k sobě navzájem. — Eman",
-    en: "Made with love. I studied tourism at VŠPJ and work at the Partnership Foundation — so the Nest follows sustainable tourism: self-service, built on mutual trust and care for the place and each other. — Eman",
+    cs: "Dělám s láskou. Vystudoval jsem cestovní ruch na VŠPJ a pracuji v Nadaci Partnerství — proto je hnízdo v duchu udržitelného turismu. — Eman",
+    en: "Made with love. I studied tourism at VŠPJ and work at the Partnership Foundation — so the Nest follows sustainable tourism. — Eman",
   },
 
   "book.title": { cs: "Rezervovat pobyt", en: "Book your stay" },
   "book.lead": {
-    cs: "Vyberte termín a napište nám rovnou na WhatsApp – odpovíme obvykle do hodiny.",
+    cs: "Vyber termín a napiš nám rovnou na WhatsApp – odpovíme obvykle do hodiny.",
     en: "Pick your dates and ping us on WhatsApp – we usually reply within an hour.",
   },
-  "common.swipe": { cs: "← táhněte pro více →", en: "← swipe for more →" },
+  "mid.eyebrow": { cs: "Zaujalo tě to?", en: "Like what you see?" },
+  "mid.title": { cs: "Chceš přijet? Vyber termín a napiš.", en: "Want to come? Pick your dates and message us." },
+
+  "history.title": { cs: "Historie domu", en: "House history" },
+  "history.lead": {
+    cs: "Tady brzy doplním příběh domu a interaktivní porovnání před / po rekonstrukci.",
+    en: "Soon I'll add the story of the house and an interactive before/after slider.",
+  },
+  "history.before": { cs: "Před", en: "Before" },
+  "history.after": { cs: "Po", en: "After" },
+
+  "testimonials.title": { cs: "Vzkazy z hnízda", en: "Notes from the Nest" },
+  "testimonials.lead": {
+    cs: "V bytě mám zápisník, kam mi hosté píší vzkazy. Postupně je sem budu přepisovat.",
+    en: "There's a guestbook in the flat. I'll be transcribing notes from it here.",
+  },
+
+  "common.swipe": { cs: "← táhni pro více →", en: "← swipe for more →" },
 
   // difficulties
   "diff.easy": { cs: "lehká", en: "easy" },
