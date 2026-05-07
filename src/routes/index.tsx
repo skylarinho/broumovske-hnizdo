@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { BeforeAfter } from "@/components/site/before-after";
 import { BookingWidget } from "@/components/site/booking";
 import { HScroll } from "@/components/site/h-scroll";
-import { trails, type Trail, type TrailType } from "@/data/trails";
+import { trails, type Trail } from "@/data/trails";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
 export const Route = createFileRoute("/")({
