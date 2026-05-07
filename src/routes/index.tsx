@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { BeforeAfter } from "@/components/site/before-after";
 import { BookingWidget } from "@/components/site/booking";
 import { HScroll } from "@/components/site/h-scroll";
+import { WeatherForecast } from "@/components/site/weather";
 import { trails, type Trail } from "@/data/trails";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
@@ -70,6 +71,7 @@ function HomePage() {
       <HistorySection />
       <TestimonialsSection />
       <BookSection />
+      <WeatherForecast />
       <ArrivalLink />
     </>
   );
