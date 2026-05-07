@@ -457,8 +457,8 @@ function HistorySection() {
     <section id="historie" className="container-prose pt-20 scroll-mt-20">
       <SectionHeader eyebrow={t("history.title")} title={t("history.title")} lead={t("history.lead")} />
       <BeforeAfter
-        before="https://images.unsplash.com/photo-1503594384566-461fe158e797?auto=format&fit=crop&w=1200&q=70"
-        after="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=70"
+        before="/historie_1.jpg",
+        after="/historie_2.jpg"
         beforeLabel={t("history.before")}
         afterLabel={t("history.after")}
       />

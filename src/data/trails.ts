@@ -1,3 +1,4 @@
+// no index
 export type TrailType = "hike" | "bike" | "car";
 export type Difficulty = "easy" | "medium" | "hard";
 
@@ -89,26 +90,7 @@ export const trails: Trail[] = [
     links: { mapyCz: "https://mapy.cz/s/hvezda-bozanov" },
     photos: [u("photo-1469474968028-56623f02e42e"), u("photo-1501785888041-af3ef285b470"), u("photo-1472214103451-9374bd1c798e"), u("photo-1455218873509-8097305ee378")],
   },
-  {
-    id: "okruh-broumov",
-    type: "bike",
-    name: { cs: "Okruh kolem Broumova", en: "Loop around Broumov" },
-    difficulty: "easy",
-    lengthKm: 25,
-    elevationM: 280,
-    duration: { cs: "2 hodiny", en: "2 hours" },
-    short: { cs: "Pohodový okruh po polních cestách.", en: "Easy loop along field paths." },
-    description: { cs: "Mírně zvlněný okruh kolem Broumova s výhledy na stěny a návštěvou několika vesnických barokních kostelů.", en: "Gently rolling loop around Broumov with views of the Walls and visits to several baroque village churches." },
-    steps: [
-      { cs: "Broumov, klášter", en: "Broumov, monastery" },
-      { cs: "Ruprechtice (dřevěný kostel)", en: "Ruprechtice (wooden church)" },
-      { cs: "Heřmánkovice", en: "Heřmánkovice" },
-      { cs: "Návrat", en: "Return" },
-    ],
-    links: { mapyCz: "https://mapy.cz/s/okruh-broumov" },
-    photos: [u("photo-1517649763962-0c623066013b"), u("photo-1485965120184-e220f721d03e"), u("photo-1502920917128-1aa500764cbd"), u("photo-1517649763962-0c623066013b")],
-  },
-  {
+    {
     id: "polske-skaly",
     type: "bike",
     name: { cs: "Do Polska – Góry Stołowe", en: "To Poland – Stołowe Mountains" },
@@ -129,24 +111,6 @@ export const trails: Trail[] = [
     photos: [u("photo-1454496522488-7a8e488e8606"), u("photo-1444080748397-f442aa95c3e5"), u("photo-1505765050516-f72dcac9c60e"), u("photo-1502082553048-f009c37129b9")],
   },
   {
-    id: "stenavske-udoli",
-    type: "bike",
-    name: { cs: "Stěnavské údolí", en: "Stěnava valley" },
-    difficulty: "easy",
-    lengthKm: 18,
-    elevationM: 80,
-    duration: { cs: "1,5 hodiny", en: "1.5 hours" },
-    short: { cs: "Rovina podél řeky, vhodné i pro děti.", en: "Flat ride along the river, kid-friendly." },
-    description: { cs: "Pohodlná cyklotrasa podél řeky Stěnavy, ideální pro rodiny s dětmi.", en: "Easy cycle path along the Stěnava river, perfect for families." },
-    steps: [
-      { cs: "Broumov", en: "Broumov" },
-      { cs: "Meziměstí", en: "Meziměstí" },
-      { cs: "Návrat", en: "Return" },
-    ],
-    links: { mapyCz: "https://mapy.cz/s/stenavske-udoli" },
-    photos: [u("photo-1502082553048-f009c37129b9"), u("photo-1501785888041-af3ef285b470"), u("photo-1500534314209-a25ddb2bd429"), u("photo-1470770841072-f978cf4d019e")],
-  },
-  {
     id: "okruh-klastery",
     type: "car",
     name: { cs: "Okruh broumovských kostelů", en: "Loop of Broumov churches" },
@@ -165,24 +129,5 @@ export const trails: Trail[] = [
     ],
     links: { web: "https://www.broumovsko.cz", mapyCz: "https://mapy.cz/s/klastery" },
     photos: [u("photo-1548625149-fc4a29cf7092"), u("photo-1543340713-8c3a4c5a0e36"), u("photo-1520637836862-4d197d17c55a"), u("photo-1473773508845-188df298d2d1")],
-  },
-  {
-    id: "orlicke-hory",
-    type: "car",
-    name: { cs: "Výlet do Orlických hor", en: "Trip to the Orlické hory" },
-    difficulty: "easy",
-    lengthKm: 60,
-    elevationM: 0,
-    duration: { cs: "celý den", en: "full day" },
-    short: { cs: "Hřebenovka autem + krátké pěší okruhy.", en: "Ridge drive with short walking loops." },
-    description: { cs: "Sjízdná hřebenovka přes Šerlich a Deštné s několika krátkými pěšími odbočkami.", en: "Drivable ridge over Šerlich and Deštné with short walking detours." },
-    steps: [
-      { cs: "Broumov", en: "Broumov" },
-      { cs: "Olešnice v O. h.", en: "Olešnice v O. h." },
-      { cs: "Šerlich", en: "Šerlich" },
-      { cs: "Deštné", en: "Deštné" },
-    ],
-    links: { mapyCz: "https://mapy.cz/s/orlicke-hory" },
-    photos: [u("photo-1470770841072-f978cf4d019e"), u("photo-1469474968028-56623f02e42e"), u("photo-1500382017468-9049fed747ef"), u("photo-1441974231531-c6227db76b6e")],
   },
 ];

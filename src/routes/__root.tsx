@@ -84,7 +84,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:title", content: "Broumovské hnízdo — ubytování v srdci Broumovska" },
       { name: "twitter:description", content: "Útulné ubytování 1+kk v Broumově. Tipy na výlety, trasy a okolí." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a7414484-1caf-4196-8777-0a7c902d7ad1/id-preview-0c41ac86--3b34dde1-2404-46bd-813c-aa5294ea2a84.lovable.app-1778134961149.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a7414484-1caf-4196-8777-0a7c902d7ad1/id-preview-0c41ac86--3b34dde1-2404-46bd-813c-aa5294ea2a84.lovable.app-1778134961149.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32dbb4e198524a2e9ed8f35b4.r2.dev/a7414484-1caf-4196-8777-0a7c902d7ad1/id-preview-0c41ac86--3b34dde1-2404-46bd-813c-aa5294ea2a84.lovable.app-1778134961149.png" },
+      { name: "robots", content: "noindex, nofollow" },
     ],
     links: [
       {
