@@ -36,7 +36,7 @@ export const dict = {
   "info.priceFrom": { cs: "Od 400 Kč / noc", en: "From 400 CZK / night" },
 
   // sections
-  "stay.title": { cs: "Tvoje pohodlné zázemí", en: "Your cosy base" },
+  "stay.title": { cs: "Tvá základna v městské památkové zóně", en: "Your base in the historic town centre" },
   "stay.lead": {
     cs: "Útulný byt 1+kk o 24 m², ideálně pro dva. Plně vybavená kuchyň, koupelna se sprchou, rozkládací postel. Vinylová podlaha, akumulační radiátory.",
     en: "A snug 24 m² studio, ideally for two. Fully equipped kitchen, walk-in shower, sofa bed. Vinyl flooring, storage heaters.",
