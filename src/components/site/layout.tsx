@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useLang, useT, type Lang } from "@/i18n";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { WeatherBadge } from "@/components/site/weather";
 
 const links = [
   { hash: "book", key: "book.title" as const },
