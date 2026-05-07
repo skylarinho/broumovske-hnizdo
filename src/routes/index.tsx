@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MapPin, ParkingSquare, Phone, Coins, Footprints, Bike, Car, Mountain, Clock, ExternalLink, ShoppingBasket, Landmark, UtensilsCrossed, Beer, Church, Check, Quote, Martini, Bus, TrainFront, Coffee, Banknote, Milk } from "lucide-react";
+import { ArrowRight, MapPin, ParkingSquare, Phone, Coins, Footprints, Mountain, Clock, ExternalLink, ShoppingBasket, Landmark, UtensilsCrossed, Beer, Church, Check, Quote, Martini, Bus, TrainFront, Coffee, Banknote, Milk } from "lucide-react";
 import { useState } from "react";
 import { useLang, useT } from "@/i18n";
 import { Button } from "@/components/ui/button";
@@ -55,7 +55,7 @@ const pois = [
   { icon: Milk, name: { cs: "Braunaer – Sýrárna Broumov", en: "Braunaer – Broumov Cheese Dairy" }, distance: "2 km", longDesc: { cs: "Místní sýrárna s broumovskými sýry – skvělý dárek nebo svačina na výlet.", en: "Local cheese dairy with Broumov cheeses — great gift or hiking snack." }, mapy: "https://mapy.cz/zakladni?q=S%C3%BDr%C3%A1rna+Broumov&source=firm&id=ChIJ4XDryglDDkcRfCB-3XLBuSE", google: "https://www.google.com/maps/place/?q=place_id:ChIJ4XDryglDDkcRfCB-3XLBuSE" },
 ];
 
-const typeIcon: Record<TrailType, any> = { hike: Footprints, bike: Bike, car: Car };
+
 
 function HomePage() {
   return (
