@@ -58,7 +58,8 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <LangSwitch lang={lang} setLang={setLang} />
+          {/* Multi-language disabled for now — keep ready for future */}
+          {false && <LangSwitch lang={lang} setLang={setLang} />}
           <Button
             variant="ghost"
             size="icon"
