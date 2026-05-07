@@ -104,9 +104,9 @@ function ArrivalLink() {
         className="card-soft card-soft-hover p-6 flex items-center justify-between gap-4"
       >
         <div>
-          <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-1">{t("nav.contact")}</p>
+          <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-1">FAQs & TODO</p>
           <h3 className="font-display text-xl font-semibold text-deep">
-            🔑 {t("contact.checklist.title")} 🧳
+            🔑 {t("contact.checklist.title")}
           </h3>
           <p className="text-sm text-muted-foreground mt-1">
             {lang === "cs" ? "Praktický průvodce krok za krokem." : "A practical step-by-step guide."}
