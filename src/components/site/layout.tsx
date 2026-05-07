@@ -1,5 +1,5 @@
 import { Link, useLocation, useRouter } from "@tanstack/react-router";
-import { Menu, X, Bird } from "lucide-react";
+import { Menu, X, Bird, MapPin, Phone, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { useLang, useT, type Lang } from "@/i18n";
 import { Button } from "@/components/ui/button";
@@ -50,7 +50,7 @@ export function Header() {
             <button
               key={l.hash}
               onClick={() => scrollTo(l.hash)}
-              className="px-3 py-2 text-sm rounded-md text-muted-foreground hover:text-foreground transition-colors"
+              className="px-3 py-2 text-sm rounded-md text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
             >
               {t(l.key)}
             </button>
@@ -125,10 +125,29 @@ export function Footer() {
         </div>
         <p className="max-w-xl leading-relaxed text-foreground/80">{t("footer.short")}</p>
         
-        <div className="mt-6 flex flex-wrap gap-x-6 gap-y-1">
-          <span>U Horní brány 22, Broumov</span>
-          <a href="tel:+420776662256" className="hover:text-foreground">+420 776 66 22 56</a>
-          <a href="https://wa.me/420776662256" target="_blank" rel="noreferrer" className="hover:text-foreground">WhatsApp</a>
+        <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+          <a
+            href="https://mapy.cz/zakladni?q=U%20Horn%C3%AD%20br%C3%A1ny%2022%2C%20Broumov"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 hover:text-foreground"
+          >
+            <MapPin className="w-4 h-4" />
+            U Horní brány 22, Broumov
+          </a>
+          <a href="tel:+420776662256" className="inline-flex items-center gap-1.5 hover:text-foreground">
+            <Phone className="w-4 h-4" />
+            +420 776 66 22 56
+          </a>
+          <a
+            href="https://wa.me/420776662256"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 hover:text-foreground"
+          >
+            <MessageCircle className="w-4 h-4" />
+            WhatsApp
+          </a>
         </div>
         <p className="mt-6 text-xs">© 2026 {t("brand.name")}. {t("footer.rights")}</p>
       </div>
