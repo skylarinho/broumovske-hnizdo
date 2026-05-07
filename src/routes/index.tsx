@@ -22,12 +22,19 @@ export const Route = createFileRoute("/")({
 });
 
 const galleryPhotos = [
-  "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=70",
-  "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1200&q=70",
-  "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=70",
-  "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=1200&q=70",
-  "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=70",
-  "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?auto=format&fit=crop&w=1200&q=70",
+  "/broumov_in_1.jpg",
+  "/broumov_in_2.jpg",
+  "/broumov_in_3.jpg",
+  "/broumov_in_4.jpg",
+  "/broumov_in_5.jpg",
+  "/broumov_in_6.jpg",
+  "/broumov_in_7.jpg",
+  "/broumov_in_8.jpg",
+  "/broumov_in_9.jpg",
+  "/broumov_in_10.jpg",
+  "/broumov_out_1.jpg",
+  "/broumov_out_2.jpg",
+  "/broumov_out_3.jpg",
 ];
 
 const pois = [
