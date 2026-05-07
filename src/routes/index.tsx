@@ -89,7 +89,7 @@ function ArrivalLink() {
         <div>
           <p className="text-xs uppercase tracking-[0.25em] text-deep/70 mb-1">{t("nav.contact")}</p>
           <h3 className="font-display text-xl font-semibold text-deep">
-            {t("contact.checklist.title")}
+            🔑 {t("contact.checklist.title")} 🧳
           </h3>
           <p className="text-sm text-muted-foreground mt-1">
             {lang === "cs" ? "Praktický průvodce krok za krokem." : "A practical step-by-step guide."}
