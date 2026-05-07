@@ -300,9 +300,8 @@ function AreaSection() {
                 <p className="text-xs text-muted-foreground">{p.distance}</p>
               </div>
             </div>
-            <p className="text-sm text-muted-foreground">{p.desc[lang]}</p>
             {p.longDesc[lang] && (
-              <p className="text-sm text-muted-foreground mt-2">{p.longDesc[lang]}</p>
+              <p className="text-sm text-muted-foreground">{p.longDesc[lang]}</p>
             )}
             {(p.mapy || p.google) && (
               <div className="flex flex-wrap gap-2 mt-3">
