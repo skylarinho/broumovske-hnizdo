@@ -79,6 +79,23 @@ function ArrivalPage() {
         </ul>
       </section>
 
+      <section className="mb-12">
+        <div className="flex items-center gap-2 mb-4 text-deep">
+          <Sparkles className="w-4 h-4" />
+          <h2 className="font-display text-xl font-semibold">
+            {lang === "cs" ? "Během pobytu" : "During the stay"}
+          </h2>
+        </div>
+        <ul className="space-y-2">
+          {during.map((it, i) => (
+            <li key={i} className="flex items-start gap-3 p-3 card-soft text-sm">
+              <Check className="w-4 h-4 text-deep mt-0.5 shrink-0" />
+              <span>{lang === "cs" ? it.cs : it.en}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       <section>
         <div className="flex items-center gap-2 mb-4 text-deep">
           <LogOut className="w-4 h-4" />
