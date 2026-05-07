@@ -458,7 +458,7 @@ function HistorySection() {
       <SectionHeader eyebrow={t("history.title")} title={t("history.title")} lead={t("history.lead")} />
       <BeforeAfter
         before="/historie_1.jpg"
-        after="/historie_2.jpg"
+        after="/historie_2.jpeg"
         beforeLabel={t("history.before")}
         afterLabel={t("history.after")}
       />
