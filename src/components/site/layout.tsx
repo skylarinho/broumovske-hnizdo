@@ -59,6 +59,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <WeatherBadge />
           {/* Multi-language disabled for now — keep ready for future */}
           {false && <LangSwitch lang={lang} setLang={setLang} />}
           <Button
