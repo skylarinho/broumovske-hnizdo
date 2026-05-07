@@ -54,15 +54,13 @@ export const dict = {
   "prices.nights12": { cs: "1–2 noci", en: "1–2 nights" },
   "prices.terms": { cs: "Podmínky", en: "Terms" },
   "prices.t1": { cs: "Platba předem na účet", en: "Payment in advance by transfer" },
-  "prices.t2": { cs: "Minimální délka pobytu: 1 noc", en: "Minimum stay: 1 night" },
   "prices.t3": { cs: "Check-in i check-out flexibilně, dle dohody", en: "Check-in & check-out flexible, by agreement" },
-  "prices.t4": { cs: "Pokud není rezervace před/po, lze i během dne", en: "If there's no booking before/after, anytime during the day works" },
   "prices.t5": { cs: "Bez kauce", en: "No deposit" },
 
   "area.title": { cs: "Poloha a okolí", en: "Location & surroundings" },
   "area.lead": {
-    cs: "Hnízdo je v klidné části Broumova, kousek od kláštera a přírodních krás Broumovských stěn.",
-    en: "The Nest sits in a quiet part of Broumov, a short walk from the monastery and the natural wonders of Broumov Walls.",
+    cs: "Hnízdo leží v městské památkové zóně v těsné blízkosti kláštera — a i tak si užiješ božský klid.",
+    en: "The Nest lies in the historic town conservation zone, right next to the monastery — yet you'll enjoy heavenly quiet.",
   },
   "area.mapycz": { cs: "Mapy.cz", en: "Mapy.cz" },
   "area.gmaps": { cs: "Google Maps", en: "Google Maps" },
