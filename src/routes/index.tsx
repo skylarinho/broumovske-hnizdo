@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MapPin, ParkingSquare, Phone, Coins, Footprints, Bike, Car, Mountain, Clock, ExternalLink, ShoppingBasket, Landmark, UtensilsCrossed, Beer, Church, Check, Quote, Martini, Bus, TrainFront, Coffee, Banknote, Milk } from "lucide-react";
+import { ArrowRight, MapPin, ParkingSquare, Phone, Coins, Footprints, Mountain, Clock, ExternalLink, ShoppingBasket, Landmark, UtensilsCrossed, Beer, Church, Check, Quote, Martini, Bus, TrainFront, Coffee, Banknote, Milk } from "lucide-react";
 import { useState } from "react";
 import { useLang, useT } from "@/i18n";
 import { Button } from "@/components/ui/button";
 import { BeforeAfter } from "@/components/site/before-after";
 import { BookingWidget } from "@/components/site/booking";
 import { HScroll } from "@/components/site/h-scroll";
-import { trails, type Trail, type TrailType } from "@/data/trails";
+import { trails, type Trail } from "@/data/trails";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
 export const Route = createFileRoute("/")({
@@ -55,7 +55,7 @@ const pois = [
   { icon: Milk, name: { cs: "Braunaer – Sýrárna Broumov", en: "Braunaer – Broumov Cheese Dairy" }, distance: "2 km", longDesc: { cs: "Místní sýrárna s broumovskými sýry – skvělý dárek nebo svačina na výlet.", en: "Local cheese dairy with Broumov cheeses — great gift or hiking snack." }, mapy: "https://mapy.cz/zakladni?q=S%C3%BDr%C3%A1rna+Broumov&source=firm&id=ChIJ4XDryglDDkcRfCB-3XLBuSE", google: "https://www.google.com/maps/place/?q=place_id:ChIJ4XDryglDDkcRfCB-3XLBuSE" },
 ];
 
-const typeIcon: Record<TrailType, any> = { hike: Footprints, bike: Bike, car: Car };
+
 
 function HomePage() {
   return (
@@ -328,35 +328,15 @@ function AreaSection() {
 function RoutesSection() {
   const t = useT();
   const { lang } = useLang();
-  const [filter, setFilter] = useState<"all" | TrailType>("all");
   const [active, setActive] = useState<Trail | null>(null);
-  const visible = filter === "all" ? trails : trails.filter((x) => x.type === filter);
-  const filters = [
-    { key: "all" as const, label: t("routes.all") },
-    { key: "hike" as const, label: t("routes.hike") },
-    { key: "bike" as const, label: t("routes.bike") },
-    { key: "car" as const, label: t("routes.car") },
-  ];
+  const visible = trails;
   return (
     <section id="trasy" className="container-prose pt-20 scroll-mt-20">
       <SectionHeader eyebrow={t("nav.routes")} title={t("routes.title")} lead={t("routes.lead")} />
-      <div className="flex flex-wrap gap-2 mb-6">
-        {filters.map((f) => (
-          <button
-            key={f.key}
-            onClick={() => setFilter(f.key)}
-            className={`px-4 py-2 rounded-full text-sm border transition-colors ${
-              filter === f.key ? "bg-deep text-primary-foreground border-deep" : "bg-card border-border hover:border-deep/40"
-            }`}
-          >
-            {f.label}
-          </button>
-        ))}
-      </div>
 
       <HScroll>
         {visible.map((trail) => {
-          const Icon = typeIcon[trail.type];
+          const Icon = Footprints;
           return (
             <button
               key={trail.id}
@@ -397,7 +377,7 @@ function RoutesSection() {
 function TrailDetail({ trail }: { trail: Trail }) {
   const t = useT();
   const { lang } = useLang();
-  const Icon = typeIcon[trail.type];
+  const Icon = Footprints;
   return (
     <>
       <SheetHeader>
