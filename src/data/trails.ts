@@ -130,4 +130,22 @@ export const trails: Trail[] = [
     links: { web: "https://www.broumovsko.cz", mapyCz: "https://mapy.cz/s/klastery" },
     photos: [u("photo-1548625149-fc4a29cf7092"), u("photo-1543340713-8c3a4c5a0e36"), u("photo-1520637836862-4d197d17c55a"), u("photo-1473773508845-188df298d2d1")],
   },
+  {
+    id: "farma-wenet",
+    type: "car",
+    name: { cs: "Farma Wenet", en: "Wenet Farm" },
+    difficulty: "easy",
+    lengthKm: 5,
+    elevationM: 0,
+    duration: { cs: "půl dne", en: "half a day" },
+    short: { cs: "Rodinná farma s exotickými zvířaty kousek od Broumova.", en: "Family farm with exotic animals near Broumov." },
+    description: { cs: "Oblíbený výlet zejména s dětmi – farma s klokany, lamami, velbloudy a dalšími zvířaty. Kousek od Broumova, ideální na dopoledne nebo odpoledne.", en: "A popular trip especially with kids — a farm with kangaroos, llamas, camels and more. Just a short drive from Broumov." },
+    tip: { cs: "Vezměte si dobré boty, areál je rozlehlý.", en: "Wear good shoes — the grounds are spacious." },
+    steps: [
+      { cs: "Broumov", en: "Broumov" },
+      { cs: "Farma Wenet (Broumov-Velká Ves)", en: "Wenet Farm (Broumov-Velká Ves)" },
+    ],
+    links: { web: "https://www.farmawenet.cz", googleMaps: "https://maps.google.com/?q=Farma+Wenet+Broumov", mapyCz: "https://mapy.cz/s/farma-wenet" },
+    photos: [],
+  },
 ];
