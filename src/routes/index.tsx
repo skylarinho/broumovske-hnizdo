@@ -468,7 +468,8 @@ function HistorySection() {
 
 const sampleNotes = [
   { cs: "Nádherné místo, vrátíme se. Děkujeme za klid a domácí atmosféru.", en: "Beautiful place — we'll be back. Thank you for the peace and homely vibe.", who: "H. & P." },
-  { cs: "Hnízdo nás dobilo. Bez WiFi, ale plné inspirace.", en: "The Nest recharged us. No WiFi, but plenty of inspiration.", who: "Markéta" },
+  { cs: "Hnízdo nás dobilo. Bez WiFi, ale ten klid a pohoda.", en: "The Nest recharged us. No WiFi, but such calm and ease.", who: "Eliška" },
+  { cs: "Bylo tady super — jízda na kole, krásné procházky, super jídlo a ubytování vynikající.", en: "It was great here — cycling, beautiful walks, great food and excellent stay.", who: "Lenka a Petr" },
 ];
 
 function TestimonialsSection() {
