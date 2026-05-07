@@ -71,6 +71,7 @@ function HomePage() {
       <HistorySection />
       <TestimonialsSection />
       <BookSection />
+      <WeatherForecast />
       <ArrivalLink />
     </>
   );
