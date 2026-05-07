@@ -51,7 +51,7 @@ export const trails: Trail[] = [
       { cs: "Návrat lesní cestou", en: "Return via forest path" },
     ],
     links: { googleMaps: "https://maps.google.com/?q=Broumovské+stěny", mapyCz: "https://mapy.cz/s/broumovske-steny" },
-    photos: [u("photo-1464822759023-fed622ff2c3b"), u("photo-1441974231531-c6227db76b6e"), u("photo-1465056836041-7f43ac27dcb5"), u("photo-1500382017468-9049fed747ef")],
+    photos: ["/bozanov.jpg"],
   },
   {
     id: "adrspach",
@@ -70,7 +70,7 @@ export const trails: Trail[] = [
       { cs: "Jezírko + plavba", en: "Lake & short boat ride" },
     ],
     links: { web: "https://www.skalyadrspach.cz", googleMaps: "https://maps.google.com/?q=Adršpach", mapyCz: "https://mapy.cz/s/adrspach" },
-    photos: [u("photo-1418065460487-3e41a6c84dc5"), u("photo-1470071459604-3b5ec3a7fe05"), u("photo-1426604966848-d7adac402bff"), u("photo-1447752875215-b2761acb3c5d")],
+    photos: ["/adrspach.jpg"],
   },
   {
     id: "hvezda-bozanov",
@@ -88,7 +88,7 @@ export const trails: Trail[] = [
       { cs: "Božanov", en: "Božanov" },
     ],
     links: { mapyCz: "https://mapy.cz/s/hvezda-bozanov" },
-    photos: [u("photo-1469474968028-56623f02e42e"), u("photo-1501785888041-af3ef285b470"), u("photo-1472214103451-9374bd1c798e"), u("photo-1455218873509-8097305ee378")],
+    photos: ["/hvezda.jpg"],
   },
     {
     id: "polske-skaly",
@@ -108,7 +108,7 @@ export const trails: Trail[] = [
       { cs: "Szczeliniec Wielki", en: "Szczeliniec Wielki" },
     ],
     links: { mapyCz: "https://mapy.cz/s/polske-skaly" },
-    photos: [u("photo-1454496522488-7a8e488e8606"), u("photo-1444080748397-f442aa95c3e5"), u("photo-1505765050516-f72dcac9c60e"), u("photo-1502082553048-f009c37129b9")],
+    photos: ["/stolowe.jpg"],
   },
   {
     id: "okruh-klastery",
@@ -128,7 +128,7 @@ export const trails: Trail[] = [
       { cs: "Šonov", en: "Šonov" },
     ],
     links: { web: "https://www.broumovsko.cz", mapyCz: "https://mapy.cz/s/klastery" },
-    photos: [u("photo-1548625149-fc4a29cf7092"), u("photo-1543340713-8c3a4c5a0e36"), u("photo-1520637836862-4d197d17c55a"), u("photo-1473773508845-188df298d2d1")],
+    photos: ["/kostely.jpg"],
   },
   {
     id: "farma-wenet",
@@ -146,7 +146,7 @@ export const trails: Trail[] = [
       { cs: "Farma Wenet (Broumov-Velká Ves)", en: "Wenet Farm (Broumov-Velká Ves)" },
     ],
     links: { web: "https://www.farmawenet.cz", googleMaps: "https://maps.google.com/?q=Farma+Wenet+Broumov", mapyCz: "https://mapy.cz/s/farma-wenet" },
-    photos: [],
+    photos: ["/wenet.jpg"],
   },
   {
     id: "okruh-broumovem",
@@ -166,7 +166,7 @@ export const trails: Trail[] = [
       { cs: "Dřevěný kostel Panny Marie", en: "Wooden Church of the Virgin Mary" },
     ],
     links: { web: "https://www.klasterbroumov.cz", googleMaps: "https://maps.google.com/?q=Broumov+klášter", mapyCz: "https://mapy.cz/s/broumov-okruh" },
-    photos: [],
+    photos: ["/klaster.jpg"],
   },
   {
     id: "machovska-lhota-jablon",
@@ -188,7 +188,7 @@ export const trails: Trail[] = [
       { cs: "Autobus Machov → Broumov", en: "Bus Machov → Broumov" },
     ],
     links: { googleMaps: "https://maps.google.com/?q=Machovská+Lhota+jabloň+Lidmanů", mapyCz: "https://mapy.cz/s/machovska-lhota-jablon" },
-    photos: [],
+    photos: ["/machov.jpg"],
   },
   {
     id: "police-hvezda-broumov",
@@ -210,7 +210,7 @@ export const trails: Trail[] = [
       { cs: "Sestup do Broumova", en: "Descent to Broumov" },
     ],
     links: { googleMaps: "https://maps.google.com/?q=Police+nad+Metují", mapyCz: "https://mapy.cz/s/police-hvezda-broumov" },
-    photos: [],
+    photos: ["/tichackova.jpg"],
   },
   {
     id: "nachod-belovec",
@@ -230,6 +230,6 @@ export const trails: Trail[] = [
       { cs: "Zámek Náchod a centrum", en: "Náchod chateau & town centre" },
     ],
     links: { googleMaps: "https://maps.google.com/?q=Náchod", mapyCz: "https://mapy.cz/s/nachod" },
-    photos: [],
+    photos: ["/nachod.jpg"],
   },
 ];
