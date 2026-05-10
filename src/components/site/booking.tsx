@@ -18,7 +18,7 @@ const PHONE_DISPLAY = "+420 776 66 22 56";
 // Obsazené termíny — uprav podle potřeby (rozsah včetně obou krajních dnů)
 const BOOKED_RANGES: { from: Date; to: Date }[] = [
   { from: new Date(2026, 4, 8), to: new Date(2026, 4, 10) },
-  { from: new Date(2026, 4, 22), to: new Date(2026, 4, 24) },
+  { from: new Date(2026, 4, 20), to: new Date(2026, 4, 22) },
   { from: new Date(2026, 5, 15), to: new Date(2026, 5, 17) },
   { from: new Date(2026, 6, 20), to: new Date(2026, 6, 26) },
   { from: new Date(2026, 7, 17), to: new Date(2026, 7, 22) },
