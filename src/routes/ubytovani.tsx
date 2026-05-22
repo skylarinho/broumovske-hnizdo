@@ -26,10 +26,7 @@ const photos: Record<Cat, string[]> = {
   living: [
     "/broumov_in_1.jpg",
     "/broumov_in_2.jpg",
-    "/broumov_in_3.jpg",
-    "/broumov_in_4.jpg",
     "/broumov_in_5.jpg",
-    "/broumov_in_6.jpg",
     "/broumov_in_11.jpg",
     "/broumov_in_12.jpg",
     "/broumov_in_13.jpg",
