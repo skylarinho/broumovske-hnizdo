@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Check, X, Wifi, Tv, Music, UtensilsCrossed, Refrigerator, Microwave, Coffee, Bath, Wind, Flame, ShowerHead, BedDouble, Cookie, Bike, Dices } from "lucide-react";
+import { ArrowLeft, Check, X, Wifi, Tv, Music, UtensilsCrossed, Refrigerator, Microwave, Coffee, Bath, Wind, Flame, ShowerHead, BedDouble, Cookie, Bike, Dices, Lamp, Sofa, BookOpen, Wine, CookingPot, Utensils, Footprints, SprayCan } from "lucide-react";
 import { useLang, useT } from "@/i18n";
 
 export const Route = createFileRoute("/vybaveni")({
@@ -29,10 +29,19 @@ const items: Item[] = [
   { icon: Microwave, cs: "Mikrovlnka", en: "Microwave", on: true },
   { icon: Flame, cs: "Sporák — indukce", en: "Induction hob", on: true },
   { icon: Coffee, cs: "Kávovar a konvice", en: "Coffee maker & kettle", on: true },
-  { icon: Cookie, cs: "Základní zásoby (sůl, olej, koření)", en: "Pantry basics (salt, oil, spices)", on: true },
+  { icon: Cookie, cs: "Základní zásoby", en: "Pantry basics", on: true, note: { cs: "Sůl, olej, základní koření, instantní káva, ovesné kaše, rýže, těstoviny.", en: "Salt, oil, basic spices, instant coffee, oats, rice, pasta." } },
+  { icon: Wine, cs: "Sklo a hrnky", en: "Glassware & mugs", on: true, note: { cs: "Sklenice na pivo a víno, klasické sklenice, hrnky.", en: "Beer and wine glasses, tumblers, mugs." } },
+  { icon: Utensils, cs: "Talíře", en: "Plates", on: true, note: { cs: "Plytké, hluboké i dezertní.", en: "Dinner, soup and dessert." } },
+  { icon: CookingPot, cs: "Pánve a hrnec", en: "Pans & pot", on: true, note: { cs: "Velká a malá pánev, hrnec.", en: "Large and small pan, pot." } },
   { icon: ShowerHead, cs: "Sprcha", en: "Shower", on: true },
   { icon: Bath, cs: "Ručníky a osušky", en: "Towels", on: true },
   { icon: BedDouble, cs: "Povlečení a prostěradla", en: "Bed linen", on: true },
+  { icon: BedDouble, cs: "Matrace Wellpur Glomma", en: "Wellpur Glomma mattresses", on: true, note: { cs: "Jedna tvrdá Glomma + dvě standardní.", en: "One firm Glomma plus two standard ones." } },
+  { icon: Sofa, cs: "Rozkládací pohovka Bealife AR50", en: "Bealife AR50 sofa bed", on: true, note: { cs: "3v1 — sezení, spaní i úložný prostor.", en: "3-in-1 — seating, sleeping and storage." } },
+  { icon: Lamp, cs: "Stojací lampa HUGO", en: "HUGO floor lamp", on: true },
+  { icon: SprayCan, cs: "Čisticí prostředky a šampony", en: "Cleaning supplies & shampoos", on: true },
+  { icon: Footprints, cs: "Papuče", en: "Slippers", on: true },
+  { icon: BookOpen, cs: "Knihy", en: "Books", on: true },
   { icon: Bike, cs: "Kolo ve sklepě (brzy 2)", en: "Bike in the cellar (soon 2)", on: true },
   { icon: Dices, cs: "Deskové hry", en: "Board games", on: true },
   { icon: Wind, cs: "Akumulační radiátory", en: "Storage heaters", on: true },
