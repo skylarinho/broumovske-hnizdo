@@ -25,8 +25,6 @@ export const Route = createFileRoute("/")({
 const galleryPhotos = [
   "/broumov_in_1.jpg",
   "/broumov_in_2.jpg",
-  "/broumov_in_5.jpg",
-  "/broumov_in_7.jpg",
   "/broumov_in_8.jpg",
   "/broumov_in_9.jpg",
   "/broumov_in_10.jpg",
