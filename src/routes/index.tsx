@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MapPin, ParkingSquare, Phone, Coins, Footprints, Mountain, Clock, ExternalLink, ShoppingBasket, Landmark, UtensilsCrossed, Beer, Church, Check, Quote, Martini, Bus, TrainFront, Coffee, Banknote, Milk, Waves, Snowflake } from "lucide-react";
+import { ArrowRight, MapPin, ParkingSquare, Phone, Coins, Footprints, Mountain, Clock, ExternalLink, ShoppingBasket, Landmark, UtensilsCrossed, Beer, Church, Check, Quote, Martini, Bus, TrainFront, Coffee, Banknote, Milk, Waves, Snowflake, Bike, Car } from "lucide-react";
 import { useState } from "react";
 import { useLang, useT } from "@/i18n";
 import { Button } from "@/components/ui/button";
@@ -344,7 +344,7 @@ function RoutesSection() {
 
       <HScroll>
         {visible.map((trail) => {
-          const Icon = Footprints;
+          const Icon = trail.type === "bike" ? Bike : trail.type === "car" ? Car : Footprints;
           return (
             <button
               key={trail.id}
@@ -357,6 +357,8 @@ function RoutesSection() {
               <div className="p-5 flex flex-col flex-1">
                 <div className="flex items-center gap-2 text-xs text-deep/80 mb-2">
                   <Icon className="w-3.5 h-3.5" />
+                  <span className="uppercase tracking-wider">{t(`routes.${trail.type}` as const)}</span>
+                  <span className="text-deep/40">·</span>
                   <span className="uppercase tracking-wider">{t(`diff.${trail.difficulty}` as const)}</span>
                 </div>
                 <h3 className="font-display text-lg font-semibold mb-2">{trail.name[lang]}</h3>
@@ -385,12 +387,14 @@ function RoutesSection() {
 function TrailDetail({ trail }: { trail: Trail }) {
   const t = useT();
   const { lang } = useLang();
-  const Icon = Footprints;
+  const Icon = trail.type === "bike" ? Bike : trail.type === "car" ? Car : Footprints;
   return (
     <>
       <SheetHeader>
         <div className="flex items-center gap-2 text-xs text-deep/80 mb-1">
           <Icon className="w-3.5 h-3.5" />
+          <span className="uppercase tracking-wider">{t(`routes.${trail.type}` as const)}</span>
+          <span className="text-deep/40">·</span>
           <span className="uppercase tracking-wider">{t(`diff.${trail.difficulty}` as const)}</span>
         </div>
         <SheetTitle className="font-display text-2xl text-left">{trail.name[lang]}</SheetTitle>
