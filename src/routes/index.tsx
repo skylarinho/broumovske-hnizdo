@@ -387,7 +387,7 @@ function RoutesSection() {
 function TrailDetail({ trail }: { trail: Trail }) {
   const t = useT();
   const { lang } = useLang();
-  const Icon = Footprints;
+  const Icon = trail.type === "bike" ? Bike : trail.type === "car" ? Car : Footprints;
   return (
     <>
       <SheetHeader>
