@@ -393,6 +393,8 @@ function TrailDetail({ trail }: { trail: Trail }) {
       <SheetHeader>
         <div className="flex items-center gap-2 text-xs text-deep/80 mb-1">
           <Icon className="w-3.5 h-3.5" />
+          <span className="uppercase tracking-wider">{t(`routes.${trail.type}` as const)}</span>
+          <span className="text-deep/40">·</span>
           <span className="uppercase tracking-wider">{t(`diff.${trail.difficulty}` as const)}</span>
         </div>
         <SheetTitle className="font-display text-2xl text-left">{trail.name[lang]}</SheetTitle>
