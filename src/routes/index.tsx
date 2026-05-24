@@ -29,6 +29,7 @@ const galleryPhotos = [
   "/broumov_in_12.jpg",
   "/broumov_in_13.jpg",
   "/broumov_in_14.jpg",
+  "/broumov_in_15.jpg",
   "/broumov_in_8.jpg",
   "/broumov_in_9.jpg",
   "/broumov_in_10.jpg",
