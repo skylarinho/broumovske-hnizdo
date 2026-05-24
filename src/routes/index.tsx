@@ -344,7 +344,7 @@ function RoutesSection() {
 
       <HScroll>
         {visible.map((trail) => {
-          const Icon = Footprints;
+          const Icon = trail.type === "bike" ? Bike : trail.type === "car" ? Car : Footprints;
           return (
             <button
               key={trail.id}
