@@ -357,6 +357,8 @@ function RoutesSection() {
               <div className="p-5 flex flex-col flex-1">
                 <div className="flex items-center gap-2 text-xs text-deep/80 mb-2">
                   <Icon className="w-3.5 h-3.5" />
+                  <span className="uppercase tracking-wider">{t(`routes.${trail.type}` as const)}</span>
+                  <span className="text-deep/40">·</span>
                   <span className="uppercase tracking-wider">{t(`diff.${trail.difficulty}` as const)}</span>
                 </div>
                 <h3 className="font-display text-lg font-semibold mb-2">{trail.name[lang]}</h3>
