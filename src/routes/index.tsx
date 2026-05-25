@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MapPin, ParkingSquare, Phone, Coins, Footprints, Mountain, Clock, ExternalLink, ShoppingBasket, Landmark, UtensilsCrossed, Beer, Church, Check, Quote, Martini, Bus, TrainFront, Coffee, Banknote, Milk, Waves, Snowflake, Bike, Car } from "lucide-react";
+import { ArrowRight, MapPin, ParkingSquare, Phone, Coins, Footprints, Mountain, Clock, ExternalLink, ShoppingBasket, Landmark, UtensilsCrossed, Beer, Church, Check, Quote, Martini, Bus, TrainFront, Coffee, Banknote, Milk, Waves, Snowflake, Bike } from "lucide-react";
 import { useState } from "react";
 import { useLang, useT } from "@/i18n";
 import { Button } from "@/components/ui/button";
@@ -344,7 +344,7 @@ function RoutesSection() {
 
       <HScroll>
         {visible.map((trail) => {
-          const Icon = trail.type === "bike" ? Bike : trail.type === "car" ? Car : Footprints;
+          const Icon = trail.type === "bike" ? Bike : trail.type === "car" ? Bus : Footprints;
           return (
             <button
               key={trail.id}
@@ -387,7 +387,7 @@ function RoutesSection() {
 function TrailDetail({ trail }: { trail: Trail }) {
   const t = useT();
   const { lang } = useLang();
-  const Icon = trail.type === "bike" ? Bike : trail.type === "car" ? Car : Footprints;
+  const Icon = trail.type === "bike" ? Bike : trail.type === "car" ? Bus : Footprints;
   return (
     <>
       <SheetHeader>
