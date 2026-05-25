@@ -80,7 +80,7 @@ export const dict = {
   "routes.all": { cs: "Vše", en: "All" },
   "routes.hike": { cs: "Pěší", en: "Hiking" },
   "routes.bike": { cs: "Cyklo", en: "Cycling" },
-  "routes.car": { cs: "Auto", en: "By car" },
+  "routes.car": { cs: "Autobus", en: "By bus" },
   "routes.more": { cs: "Více informací", en: "More info" },
   "routes.difficulty": { cs: "Náročnost", en: "Difficulty" },
   "routes.length": { cs: "Délka", en: "Length" },

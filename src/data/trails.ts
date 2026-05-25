@@ -112,14 +112,14 @@ export const trails: Trail[] = [
   },
   {
     id: "okruh-klastery",
-    type: "car",
+    type: "bike",
     name: { cs: "Okruh broumovských kostelů", en: "Loop of Broumov churches" },
     difficulty: "easy",
     lengthKm: 45,
     elevationM: 0,
     duration: { cs: "půl dne", en: "half a day" },
     short: { cs: "Devět barokních kostelů Dientzenhoferů.", en: "Nine baroque churches by the Dientzenhofers." },
-    description: { cs: "Autem postupně objedete unikátní skupinu barokních kostelů, dílo Kryštofa a Kiliána Ignáce Dientzenhoferových.", en: "Drive between the unique group of baroque churches by Christoph and Kilian Ignaz Dientzenhofer." },
+    description: { cs: "Na kole postupně objedete unikátní skupinu barokních kostelů, dílo Kryštofa a Kiliána Ignáce Dientzenhoferových.", en: "Cycle between the unique group of baroque churches by Christoph and Kilian Ignaz Dientzenhofer." },
     tip: { cs: "Kostely jsou většinou zamčené, kombinujte s prohlídkou v Polici n. M.", en: "Churches are usually locked — combine with a tour in Police nad Metují." },
     steps: [
       { cs: "Broumov klášter", en: "Broumov monastery" },
@@ -132,14 +132,14 @@ export const trails: Trail[] = [
   },
   {
     id: "farma-wenet",
-    type: "car",
+    type: "hike",
     name: { cs: "Farma Wenet", en: "Wenet Farm" },
     difficulty: "easy",
     lengthKm: 6,
     elevationM: 0,
     duration: { cs: "půl dne", en: "half a day" },
     short: { cs: "Rodinná farma s exotickými zvířaty kousek od Broumova.", en: "Family farm with exotic animals near Broumov." },
-    description: { cs: "Oblíbený výlet zejména s dětmi – farma s klokany, lamami, velbloudy a dalšími zvířaty. Kousek od Broumova, ideální na dopoledne nebo odpoledne.", en: "A popular trip especially with kids — a farm with kangaroos, llamas, camels and more. Just a short drive from Broumov." },
+    description: { cs: "Oblíbený výlet zejména s dětmi – farma s klokany, lamami, velbloudy a dalšími zvířaty. Kousek od Broumova, ideální na dopoledne nebo odpoledne.", en: "A popular trip especially with kids — a farm with kangaroos, llamas, camels and more. Just a short walk from Broumov." },
     tip: { cs: "Vezměte si dobré boty, areál je rozlehlý.", en: "Wear good shoes — the grounds are spacious." },
     steps: [
       { cs: "Broumov", en: "Broumov" },
