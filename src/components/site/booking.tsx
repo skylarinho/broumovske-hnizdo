@@ -133,10 +133,10 @@ export function BookingWidget({ compact = false }: { compact?: boolean }) {
                   booked:
                     "line-through text-destructive/70 bg-destructive/15 rounded-md",
                   checkoutHalf:
-                    "rounded-md ring-1 ring-border [background:linear-gradient(135deg,hsl(var(--destructive)/0.18)_0%,hsl(var(--destructive)/0.18)_50%,hsl(142_70%_45%/0.18)_50%,hsl(142_70%_45%/0.18)_100%)]",
+                    "rounded-md ring-1 ring-border [background:linear-gradient(135deg,rgba(220,38,38,0.22)_0%,rgba(220,38,38,0.22)_50%,rgba(34,197,94,0.22)_50%,rgba(34,197,94,0.22)_100%)]",
                   checkinHalf:
-                    "rounded-md ring-1 ring-border [background:linear-gradient(135deg,hsl(142_70%_45%/0.18)_0%,hsl(142_70%_45%/0.18)_50%,hsl(var(--destructive)/0.18)_50%,hsl(var(--destructive)/0.18)_100%)]",
-                  available: "rounded-md ring-1 ring-border bg-[hsl(142_70%_45%/0.12)]",
+                    "rounded-md ring-1 ring-border [background:linear-gradient(135deg,rgba(34,197,94,0.22)_0%,rgba(34,197,94,0.22)_50%,rgba(220,38,38,0.22)_50%,rgba(220,38,38,0.22)_100%)]",
+                  available: "rounded-md ring-1 ring-border bg-[rgba(34,197,94,0.14)]",
                 }}
                 locale={locale}
                 weekStartsOn={1}
@@ -144,7 +144,7 @@ export function BookingWidget({ compact = false }: { compact?: boolean }) {
               />
               <div className="px-3 pb-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[11px] text-muted-foreground">
                 <span className="inline-flex items-center gap-1.5">
-                  <span className="inline-block w-3 h-3 rounded-sm ring-1 ring-border bg-[hsl(142_70%_45%/0.18)]" />
+                  <span className="inline-block w-3 h-3 rounded-sm ring-1 ring-border bg-[rgba(34,197,94,0.22)]" />
                   {lang === "cs" ? "Volné" : "Available"}
                 </span>
                 <span className="inline-flex items-center gap-1.5">
@@ -152,7 +152,7 @@ export function BookingWidget({ compact = false }: { compact?: boolean }) {
                   {lang === "cs" ? "Obsazené" : "Booked"}
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <span className="inline-block w-3 h-3 rounded-sm ring-1 ring-border [background:linear-gradient(135deg,hsl(var(--destructive)/0.25)_0%,hsl(var(--destructive)/0.25)_50%,hsl(142_70%_45%/0.25)_50%,hsl(142_70%_45%/0.25)_100%)]" />
+                  <span className="inline-block w-3 h-3 rounded-sm ring-1 ring-border [background:linear-gradient(135deg,rgba(220,38,38,0.3)_0%,rgba(220,38,38,0.3)_50%,rgba(34,197,94,0.3)_50%,rgba(34,197,94,0.3)_100%)]" />
                   {lang === "cs" ? "Odjezd / příjezd" : "Check-out / in"}
                 </span>
               </div>
