@@ -20,17 +20,33 @@ const BOOKED_RANGES: { from: Date; to: Date }[] = [
   { from: new Date(2026, 4, 8), to: new Date(2026, 4, 10) },
   { from: new Date(2026, 4, 20), to: new Date(2026, 4, 24) },
   { from: new Date(2026, 5, 15), to: new Date(2026, 5, 17) },
+  { from: new Date(2026, 5, 27), to: new Date(2026, 6, 1) },
   { from: new Date(2026, 6, 7), to: new Date(2026, 6, 10) },
   { from: new Date(2026, 6, 20), to: new Date(2026, 6, 26) },
   { from: new Date(2026, 7, 19), to: new Date(2026, 7, 29) },
   { from: new Date(2026, 11, 23), to: new Date(2026, 11, 26) },
 ];
 
+const DAY_MS = 86400000;
+const startOfDay = (d: Date) => new Date(d).setHours(0, 0, 0, 0);
+
 function isBooked(d: Date) {
-  const t = d.setHours(0, 0, 0, 0);
-  return BOOKED_RANGES.some(
-    (r) => t >= new Date(r.from).setHours(0, 0, 0, 0) && t <= new Date(r.to).setHours(0, 0, 0, 0)
-  );
+  const t = startOfDay(d);
+  return BOOKED_RANGES.some((r) => t >= startOfDay(r.from) && t <= startOfDay(r.to));
+}
+
+// Den těsně PO obsazeném rozsahu = ranní odjezd (dopoledne obsazené, odpoledne volné)
+function isCheckoutHalf(d: Date) {
+  if (isBooked(d)) return false;
+  const t = startOfDay(d);
+  return BOOKED_RANGES.some((r) => t === startOfDay(r.to) + DAY_MS);
+}
+
+// Den těsně PŘED obsazeným rozsahem = večerní příjezd (dopoledne volné, odpoledne obsazené)
+function isCheckinHalf(d: Date) {
+  if (isBooked(d)) return false;
+  const t = startOfDay(d);
+  return BOOKED_RANGES.some((r) => t === startOfDay(r.from) - DAY_MS);
 }
 
 export function BookingWidget({ compact = false }: { compact?: boolean }) {
