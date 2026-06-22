@@ -20,17 +20,33 @@ const BOOKED_RANGES: { from: Date; to: Date }[] = [
   { from: new Date(2026, 4, 8), to: new Date(2026, 4, 10) },
   { from: new Date(2026, 4, 20), to: new Date(2026, 4, 24) },
   { from: new Date(2026, 5, 15), to: new Date(2026, 5, 17) },
+  { from: new Date(2026, 5, 27), to: new Date(2026, 6, 1) },
   { from: new Date(2026, 6, 7), to: new Date(2026, 6, 10) },
   { from: new Date(2026, 6, 20), to: new Date(2026, 6, 26) },
   { from: new Date(2026, 7, 19), to: new Date(2026, 7, 29) },
   { from: new Date(2026, 11, 23), to: new Date(2026, 11, 26) },
 ];
 
+const DAY_MS = 86400000;
+const startOfDay = (d: Date) => new Date(d).setHours(0, 0, 0, 0);
+
 function isBooked(d: Date) {
-  const t = d.setHours(0, 0, 0, 0);
-  return BOOKED_RANGES.some(
-    (r) => t >= new Date(r.from).setHours(0, 0, 0, 0) && t <= new Date(r.to).setHours(0, 0, 0, 0)
-  );
+  const t = startOfDay(d);
+  return BOOKED_RANGES.some((r) => t >= startOfDay(r.from) && t <= startOfDay(r.to));
+}
+
+// Den těsně PO obsazeném rozsahu = ranní odjezd (dopoledne obsazené, odpoledne volné)
+function isCheckoutHalf(d: Date) {
+  if (isBooked(d)) return false;
+  const t = startOfDay(d);
+  return BOOKED_RANGES.some((r) => t === startOfDay(r.to) + DAY_MS);
+}
+
+// Den těsně PŘED obsazeným rozsahem = večerní příjezd (dopoledne volné, odpoledne obsazené)
+function isCheckinHalf(d: Date) {
+  if (isBooked(d)) return false;
+  const t = startOfDay(d);
+  return BOOKED_RANGES.some((r) => t === startOfDay(r.from) - DAY_MS);
 }
 
 export function BookingWidget({ compact = false }: { compact?: boolean }) {
@@ -103,17 +119,42 @@ export function BookingWidget({ compact = false }: { compact?: boolean }) {
                   (d: Date) => d < new Date(new Date().setHours(0, 0, 0, 0)),
                   (d: Date) => isBooked(new Date(d)),
                 ]}
-                modifiers={{ booked: (d: Date) => isBooked(new Date(d)) }}
+                modifiers={{
+                  booked: (d: Date) => isBooked(new Date(d)),
+                  checkoutHalf: (d: Date) => isCheckoutHalf(new Date(d)),
+                  checkinHalf: (d: Date) => isCheckinHalf(new Date(d)),
+                  available: (d: Date) =>
+                    d >= new Date(new Date().setHours(0, 0, 0, 0)) &&
+                    !isBooked(new Date(d)) &&
+                    !isCheckoutHalf(new Date(d)) &&
+                    !isCheckinHalf(new Date(d)),
+                }}
                 modifiersClassNames={{
-                  booked: "line-through text-muted-foreground/60 bg-destructive/10",
+                  booked:
+                    "line-through text-destructive/70 bg-destructive/15 rounded-md",
+                  checkoutHalf:
+                    "rounded-md ring-1 ring-border [background:linear-gradient(135deg,rgba(220,38,38,0.22)_0%,rgba(220,38,38,0.22)_50%,rgba(34,197,94,0.22)_50%,rgba(34,197,94,0.22)_100%)]",
+                  checkinHalf:
+                    "rounded-md ring-1 ring-border [background:linear-gradient(135deg,rgba(34,197,94,0.22)_0%,rgba(34,197,94,0.22)_50%,rgba(220,38,38,0.22)_50%,rgba(220,38,38,0.22)_100%)]",
+                  available: "rounded-md ring-1 ring-border bg-[rgba(34,197,94,0.14)]",
                 }}
                 locale={locale}
                 weekStartsOn={1}
                 className="p-3 pointer-events-auto"
               />
-              <div className="px-3 pb-3 flex items-center gap-2 text-[11px] text-muted-foreground">
-                <span className="inline-block w-3 h-3 rounded-sm bg-destructive/20" />
-                {lang === "cs" ? "obsazeno" : "booked"}
+              <div className="px-3 pb-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[11px] text-muted-foreground">
+                <span className="inline-flex items-center gap-1.5">
+                  <span className="inline-block w-3 h-3 rounded-sm ring-1 ring-border bg-[rgba(34,197,94,0.22)]" />
+                  {lang === "cs" ? "Volné" : "Available"}
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <span className="inline-block w-3 h-3 rounded-sm bg-destructive/20 ring-1 ring-destructive/30" />
+                  {lang === "cs" ? "Obsazené" : "Booked"}
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <span className="inline-block w-3 h-3 rounded-sm ring-1 ring-border [background:linear-gradient(135deg,rgba(220,38,38,0.3)_0%,rgba(220,38,38,0.3)_50%,rgba(34,197,94,0.3)_50%,rgba(34,197,94,0.3)_100%)]" />
+                  {lang === "cs" ? "Odjezd / příjezd" : "Check-out / in"}
+                </span>
               </div>
             </PopoverContent>
           </Popover>
