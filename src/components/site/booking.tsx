@@ -32,21 +32,19 @@ const startOfDay = (d: Date) => new Date(d).setHours(0, 0, 0, 0);
 
 function isBooked(d: Date) {
   const t = startOfDay(d);
-  return BOOKED_RANGES.some((r) => t >= startOfDay(r.from) && t <= startOfDay(r.to));
+  return BOOKED_RANGES.some((r) => t > startOfDay(r.from) && t < startOfDay(r.to));
 }
 
-// Den těsně PO obsazeném rozsahu = ranní odjezd (dopoledne obsazené, odpoledne volné)
+// Den odjezdu = ráno obsazené, odpoledne volné
 function isCheckoutHalf(d: Date) {
-  if (isBooked(d)) return false;
   const t = startOfDay(d);
-  return BOOKED_RANGES.some((r) => t === startOfDay(r.to) + DAY_MS);
+  return BOOKED_RANGES.some((r) => t === startOfDay(r.to));
 }
 
-// Den těsně PŘED obsazeným rozsahem = večerní příjezd (dopoledne volné, odpoledne obsazené)
+// Den příjezdu = ráno volné (příprava), odpoledne obsazené
 function isCheckinHalf(d: Date) {
-  if (isBooked(d)) return false;
   const t = startOfDay(d);
-  return BOOKED_RANGES.some((r) => t === startOfDay(r.from) - DAY_MS);
+  return BOOKED_RANGES.some((r) => t === startOfDay(r.from));
 }
 
 export function BookingWidget({ compact = false }: { compact?: boolean }) {
@@ -117,7 +115,7 @@ export function BookingWidget({ compact = false }: { compact?: boolean }) {
                 numberOfMonths={1}
                 disabled={[
                   (d: Date) => d < new Date(new Date().setHours(0, 0, 0, 0)),
-                  (d: Date) => isBooked(new Date(d)),
+                  (d: Date) => isBooked(new Date(d)) || isCheckinHalf(new Date(d)),
                 ]}
                 modifiers={{
                   booked: (d: Date) => isBooked(new Date(d)),
