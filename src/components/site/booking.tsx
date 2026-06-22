@@ -115,7 +115,7 @@ export function BookingWidget({ compact = false }: { compact?: boolean }) {
                 numberOfMonths={1}
                 disabled={[
                   (d: Date) => d < new Date(new Date().setHours(0, 0, 0, 0)),
-                  (d: Date) => isBooked(new Date(d)),
+                  (d: Date) => isBooked(new Date(d)) || isCheckinHalf(new Date(d)),
                 ]}
                 modifiers={{
                   booked: (d: Date) => isBooked(new Date(d)),
