@@ -21,10 +21,11 @@ const BOOKED_RANGES: { from: Date; to: Date }[] = [
   { from: new Date(2026, 4, 20), to: new Date(2026, 4, 24) },
   { from: new Date(2026, 5, 15), to: new Date(2026, 5, 17) },
   { from: new Date(2026, 5, 27), to: new Date(2026, 6, 1) },
-  { from: new Date(2026, 6, 7), to: new Date(2026, 6, 10) },
+  { from: new Date(2026, 6, 9), to: new Date(2026, 6, 13) },
   { from: new Date(2026, 6, 20), to: new Date(2026, 6, 26) },
   { from: new Date(2026, 7, 19), to: new Date(2026, 7, 29) },
   { from: new Date(2026, 11, 23), to: new Date(2026, 11, 26) },
+
 ];
 
 const DAY_MS = 86400000;
