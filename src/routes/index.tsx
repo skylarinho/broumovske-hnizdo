@@ -281,13 +281,14 @@ function PricesSection() {
         ))}
       </div>
       <ul className="grid sm:grid-cols-2 gap-2 mt-6 max-w-3xl">
-        {(["prices.t1","prices.t3","prices.t5"] as const).map((k) => (
+        {(["prices.t1","prices.t3","prices.t5","prices.t6"] as const).map((k) => (
           <li key={k} className="flex items-start gap-2 text-sm text-muted-foreground">
             <Check className="w-4 h-4 text-deep mt-0.5 shrink-0" />
             <span>{t(k)}</span>
           </li>
         ))}
       </ul>
+
     </section>
   );
 }
