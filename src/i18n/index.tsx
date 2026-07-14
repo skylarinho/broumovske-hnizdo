@@ -56,6 +56,9 @@ export const dict = {
   "prices.t1": { cs: "Platba předem na účet", en: "Payment in advance by transfer" },
   "prices.t3": { cs: "Check-in i check-out flexibilně, dle dohody", en: "Check-in & check-out flexible, by agreement" },
   "prices.t5": { cs: "Bez kauce", en: "No deposit" },
+  "prices.t6": { cs: "Bez domácích mazlíčků", en: "No pets" },
+  "stay.noPets": { cs: "U nás prosím bez domácích mazlíčků.", en: "Please, no pets." },
+
 
   "area.title": { cs: "Poloha a okolí", en: "Location & surroundings" },
   "area.lead": {
