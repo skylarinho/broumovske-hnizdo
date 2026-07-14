@@ -245,12 +245,15 @@ function StaySection() {
         </Button>
       </div>
 
+      <p className="mt-4 text-sm text-muted-foreground">{t("stay.noPets")}</p>
+
       {lightbox && (
         <div onClick={() => setLightbox(null)} className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 cursor-zoom-out">
           <img src={lightbox} alt="" className="max-h-full max-w-full rounded-lg" />
         </div>
       )}
     </section>
+
   );
 }
 
@@ -281,13 +284,14 @@ function PricesSection() {
         ))}
       </div>
       <ul className="grid sm:grid-cols-2 gap-2 mt-6 max-w-3xl">
-        {(["prices.t1","prices.t3","prices.t5"] as const).map((k) => (
+        {(["prices.t1","prices.t3","prices.t5","prices.t6"] as const).map((k) => (
           <li key={k} className="flex items-start gap-2 text-sm text-muted-foreground">
             <Check className="w-4 h-4 text-deep mt-0.5 shrink-0" />
             <span>{t(k)}</span>
           </li>
         ))}
       </ul>
+
     </section>
   );
 }
