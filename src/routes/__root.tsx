@@ -96,6 +96,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", type: "image/png", href: "/favicon-dark.png", media: "(prefers-color-scheme: dark)" },
       { rel: "apple-touch-icon", href: "/favicon.png" },
     ],
+    scripts: [
+      {
+        defer: true,
+        src: "https://cloud.umami.is/script.js",
+        "data-website-id": "bc42e0f6-4cf0-48e2-a63b-e6c652b24fbf",
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
