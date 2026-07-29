@@ -9,43 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as VybaveniRouteImport } from './routes/vybaveni'
-import { Route as UbytovaniRouteImport } from './routes/ubytovani'
-import { Route as TrasyRouteImport } from './routes/trasy'
-import { Route as PrijezdRouteImport } from './routes/prijezd'
-import { Route as OkoliRouteImport } from './routes/okoli'
-import { Route as KontaktRouteImport } from './routes/kontakt'
-import { Route as CenyRouteImport } from './routes/ceny'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CenyRouteImport } from './routes/ceny'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as OkoliRouteImport } from './routes/okoli'
+import { Route as PrijezdRouteImport } from './routes/prijezd'
+import { Route as TrasyRouteImport } from './routes/trasy'
+import { Route as UbytovaniRouteImport } from './routes/ubytovani'
+import { Route as VybaveniRouteImport } from './routes/vybaveni'
 
-const VybaveniRoute = VybaveniRouteImport.update({
-  id: '/vybaveni',
-  path: '/vybaveni',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const UbytovaniRoute = UbytovaniRouteImport.update({
-  id: '/ubytovani',
-  path: '/ubytovani',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TrasyRoute = TrasyRouteImport.update({
-  id: '/trasy',
-  path: '/trasy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrijezdRoute = PrijezdRouteImport.update({
-  id: '/prijezd',
-  path: '/prijezd',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OkoliRoute = OkoliRouteImport.update({
-  id: '/okoli',
-  path: '/okoli',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KontaktRoute = KontaktRouteImport.update({
-  id: '/kontakt',
-  path: '/kontakt',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CenyRoute = CenyRouteImport.update({
@@ -53,9 +28,34 @@ const CenyRoute = CenyRouteImport.update({
   path: '/ceny',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OkoliRoute = OkoliRouteImport.update({
+  id: '/okoli',
+  path: '/okoli',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrijezdRoute = PrijezdRouteImport.update({
+  id: '/prijezd',
+  path: '/prijezd',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrasyRoute = TrasyRouteImport.update({
+  id: '/trasy',
+  path: '/trasy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UbytovaniRoute = UbytovaniRouteImport.update({
+  id: '/ubytovani',
+  path: '/ubytovani',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VybaveniRoute = VybaveniRouteImport.update({
+  id: '/vybaveni',
+  path: '/vybaveni',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -136,46 +136,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/vybaveni': {
-      id: '/vybaveni'
-      path: '/vybaveni'
-      fullPath: '/vybaveni'
-      preLoaderRoute: typeof VybaveniRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ubytovani': {
-      id: '/ubytovani'
-      path: '/ubytovani'
-      fullPath: '/ubytovani'
-      preLoaderRoute: typeof UbytovaniRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/trasy': {
-      id: '/trasy'
-      path: '/trasy'
-      fullPath: '/trasy'
-      preLoaderRoute: typeof TrasyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/prijezd': {
-      id: '/prijezd'
-      path: '/prijezd'
-      fullPath: '/prijezd'
-      preLoaderRoute: typeof PrijezdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/okoli': {
-      id: '/okoli'
-      path: '/okoli'
-      fullPath: '/okoli'
-      preLoaderRoute: typeof OkoliRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/kontakt': {
-      id: '/kontakt'
-      path: '/kontakt'
-      fullPath: '/kontakt'
-      preLoaderRoute: typeof KontaktRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ceny': {
@@ -185,11 +150,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CenyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/okoli': {
+      id: '/okoli'
+      path: '/okoli'
+      fullPath: '/okoli'
+      preLoaderRoute: typeof OkoliRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prijezd': {
+      id: '/prijezd'
+      path: '/prijezd'
+      fullPath: '/prijezd'
+      preLoaderRoute: typeof PrijezdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trasy': {
+      id: '/trasy'
+      path: '/trasy'
+      fullPath: '/trasy'
+      preLoaderRoute: typeof TrasyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ubytovani': {
+      id: '/ubytovani'
+      path: '/ubytovani'
+      fullPath: '/ubytovani'
+      preLoaderRoute: typeof UbytovaniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vybaveni': {
+      id: '/vybaveni'
+      path: '/vybaveni'
+      fullPath: '/vybaveni'
+      preLoaderRoute: typeof VybaveniRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -208,3 +208,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
