@@ -247,7 +247,8 @@ function StaySection() {
         </Button>
       </div>
 
-      <p className="mt-4 text-sm text-muted-foreground">{t("stay.noPets")}</p>
+
+
 
       {lightbox && (
         <div onClick={() => setLightbox(null)} className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 cursor-zoom-out">
