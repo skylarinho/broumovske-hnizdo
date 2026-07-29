@@ -78,8 +78,8 @@ function AmenitiesPage() {
         </h1>
         <p className="mt-4 text-muted-foreground">
           {lang === "cs"
-            ? "Vše, co najdete v bytě. Bez fotek — jen suchý seznam."
-            : "Everything you'll find in the flat. No photos — just a plain list."}
+            ? "Vše, co najdete v bytě."
+            : "Everything you'll find in the flat."}
         </p>
       </header>
 

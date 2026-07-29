@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MapPin, ParkingSquare, Phone, Coins, Footprints, Mountain, Clock, ExternalLink, ShoppingBasket, Landmark, UtensilsCrossed, Beer, Church, Check, Quote, Martini, Bus, TrainFront, Coffee, Banknote, Milk, Waves, Snowflake, Bike } from "lucide-react";
+import { ArrowRight, MapPin, ParkingSquare, Phone, Coins, Footprints, Mountain, Clock, ExternalLink, ShoppingBasket, Landmark, UtensilsCrossed, Beer, Church, Check, Quote, Martini, Bus, TrainFront, Coffee, Banknote, Milk, Waves, Snowflake, Bike, Theater, Dumbbell } from "lucide-react";
 import { useState } from "react";
 import { useLang, useT } from "@/i18n";
 import { Button } from "@/components/ui/button";
@@ -60,6 +60,8 @@ const pois = [
   { icon: Beer, name: { cs: "Hospoda Na Křižovatce Božanov", en: "Pub Na Křižovatce Božanov" }, distance: "6 km", longDesc: { cs: "Vesnická hospoda na křižovatce v Božanově – pivo, jednoduchá kuchyně a místní parta. Skvělá zastávka při výletu do skal.", en: "Village pub at the Božanov crossroads — beer, simple food and local crowd. Great stop on a trip to the rocks." }, mapy: "https://mapy.cz/zakladni?q=Hospoda+Na+K%C5%99i%C5%BEovatce+Bo%C5%BEanov", google: "https://www.google.com/maps/search/?api=1&query=Hospoda+Na+K%C5%99i%C5%BEovatce+Bo%C5%BEanov" },
   { icon: Waves, name: { cs: "Koupaliště Janovičky", en: "Janovičky swimming pool" }, distance: "8 km", longDesc: { cs: "Přírodní koupaliště v lesích nad Broumovem – v létě ideální únik před vedrem.", en: "Natural swimming pool in the woods above Broumov — perfect summer escape from the heat." }, mapy: "https://mapy.cz/zakladni?q=koupali%C5%A1t%C4%9B+Janovi%C4%8Dky", google: "https://www.google.com/maps/search/?api=1&query=Koupali%C5%A1t%C4%9B+Janovi%C4%8Dky" },
   { icon: Snowflake, name: { cs: "Skiareál Janovičky", en: "Janovičky ski resort" }, distance: "8 km", longDesc: { cs: "Malý rodinný skiareál nad Broumovem – v zimě sjezdovka i běžkařské stopy.", en: "Small family-run ski resort above Broumov — downhill slope and cross-country tracks in winter." }, mapy: "https://mapy.cz/zakladni?q=skiare%C3%A1l+Janovi%C4%8Dky", google: "https://www.google.com/maps/search/?api=1&query=Skiare%C3%A1l+Janovi%C4%8Dky" },
+  { icon: Dumbbell, name: { cs: "Bfit & minigolf – Centrum Artamon, Bukovice", en: "Bfit & minigolf – Artamon Centre, Bukovice" }, distance: "10 km", longDesc: { cs: "Sportovní centrum Artamon v Bukovicích u Police nad Metují – posilovna Bfit, minigolf a další sport. Fajn plán, když nechceš do skal.", en: "Artamon sports centre in Bukovice near Police nad Metují — Bfit gym, minigolf and more. A nice plan when you don't feel like hiking." }, mapy: "https://mapy.cz/zakladni?q=Centrum+Artamon+Bukovice", google: "https://www.google.com/maps/search/?api=1&query=Centrum+Artamon+Bukovice" },
+  { icon: Theater, name: { cs: "Centrum Walzel, Meziměstí", en: "Walzel Centre, Meziměstí" }, distance: "12 km", longDesc: { cs: "Kulturní a společenské centrum v bývalé Walzelově textilce – koncerty, výstavy, kino i kavárna. Mrkni na program.", en: "Cultural centre in the former Walzel textile mill — concerts, exhibitions, cinema and a café. Check the programme." }, mapy: "https://mapy.cz/zakladni?q=Centrum+Walzel+Mezim%C4%9Bst%C3%AD", google: "https://www.google.com/maps/search/?api=1&query=Centrum+Walzel+Mezim%C4%9Bst%C3%AD" },
   { icon: Waves, name: { cs: "Koupaliště Botanica – Ninja Waterpark", en: "Botanica – Ninja Waterpark" }, distance: "15 km", longDesc: { cs: "Letní koupaliště s ninja překážkovou dráhou na vodě, tobogány a bazény – zábava pro děti i dospělé.", en: "Summer pool with a ninja obstacle course on water, slides and pools — fun for kids and adults alike." }, mapy: "https://mapy.cz/zakladni?q=Botanica+Ninja+Waterpark", google: "https://www.google.com/maps/search/?api=1&query=Botanica+Ninja+Waterpark" },
   { icon: Waves, name: { cs: "Aqua centrum Nowa Ruda", en: "Aqua centrum Nowa Ruda" }, distance: "25 km", longDesc: { cs: "Polský aquapark s bazény, tobogány a wellness – ideální plán B do deště. Vezmi si doklady.", en: "Polish aqua park with pools, slides and wellness — perfect rainy-day plan B. Bring your ID." }, mapy: "https://mapy.cz/zakladni?q=Centrum+Turystyczno-Sportowe+Nowa+Ruda", google: "https://www.google.com/maps/search/?api=1&query=Centrum+Turystyczno+Sportowe+Nowa+Ruda" },
 ];
@@ -245,7 +247,8 @@ function StaySection() {
         </Button>
       </div>
 
-      <p className="mt-4 text-sm text-muted-foreground">{t("stay.noPets")}</p>
+
+
 
       {lightbox && (
         <div onClick={() => setLightbox(null)} className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 cursor-zoom-out">
