@@ -24,7 +24,7 @@ const BOOKED_RANGES: { from: Date; to: Date }[] = [
   { from: new Date(2026, 6, 9), to: new Date(2026, 6, 16) },
   { from: new Date(2026, 6, 20), to: new Date(2026, 6, 26) },
   { from: new Date(2026, 6, 29), to: new Date(2026, 7, 2) },
-  { from: new Date(2026, 7, 5), to: new Date(2026, 7, 7) },
+  
   { from: new Date(2026, 7, 20), to: new Date(2026, 7, 23) },
   { from: new Date(2026, 7, 24), to: new Date(2026, 7, 31) },
   { from: new Date(2026, 11, 23), to: new Date(2026, 11, 26) },
